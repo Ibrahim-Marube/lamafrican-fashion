@@ -1,355 +1,230 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-import { ArrowLeft, ShoppingBag, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShoppingCart, MessageCircle, CreditCard, ArrowRight, TrendingUp, Sparkles } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
 
-// Import category data - COPY ALL YOUR CATEGORIES HERE
-const categoryData: Record<string, { name: string; products: any[] }> = {
-  'sun-hats': {
-    name: 'Accessories - Sun Hats',
-    products: [
-      {
-        id: 'ankara-sun-hat',
-        name: 'Ankara Sun Hat - Premium Collection',
-        slug: 'ankara-sun-hat',
-        price: 1500,
-        image: '/images/products/sun-hats/sun1.JPG',
-        gallery: [
-          '/images/products/sun-hats/sun1.JPG',
-          '/images/products/sun-hats/sun2.JPG',
-          '/images/products/sun-hats/sun3.JPG',
-          '/images/products/sun-hats/sun4.JPG',
-          '/images/products/sun-hats/sun5.JPG',
-        ],
-        description: 'Premium Ankara sun hat with beautiful African prints. Perfect for outdoor events, beach trips, and sunny days.',
-      },
-    ],
-  },
-  'bomber-jackets': {
-    name: 'Ankara Bomber Jackets',
-    products: [
-      {
-        id: 'ankara-bomber-jacket',
-        name: 'Ankara Bomber Jacket - Premium Collection',
-        slug: 'ankara-bomber-jacket',
-        price: 6500,
-        image: '/images/products/bomber-jackets/bomber1.jpg',
-        gallery: [
-          '/images/products/bomber-jackets/bomber1.jpg',
-          '/images/products/bomber-jackets/bomber2.jpg',
-          '/images/products/bomber-jackets/bomber3.jpg',
-          '/images/products/bomber-jackets/bomber4.jpg',
-          '/images/products/bomber-jackets/bomber5.jpg',
-          '/images/products/bomber-jackets/bomber6.jpg',
-          '/images/products/bomber-jackets/bomber7.jpg',
-          '/images/products/bomber-jackets/bomber8.jpg',
-          '/images/products/bomber-jackets/bomber9.jpg',
-          '/images/products/bomber-jackets/bomber10.jpg',
-          '/images/products/bomber-jackets/bomber11.jpg',
-          '/images/products/bomber-jackets/bomber12.jpg',
-          '/images/products/bomber-jackets/bomber13.jpg',
-          '/images/products/bomber-jackets/bomber14.jpg',
-          '/images/products/bomber-jackets/bomber15.jpg',
-          '/images/products/bomber-jackets/bomber16.jpg',
-          '/images/products/bomber-jackets/bomber17.jpg',
-          '/images/products/bomber-jackets/bomber18.jpg',
-          '/images/products/bomber-jackets/bomber19.jpg',
-          '/images/products/bomber-jackets/bomber20.jpg',
-          '/images/products/bomber-jackets/bomber21.jpg',
-          '/images/products/bomber-jackets/bomber22.jpg',
-          '/images/products/bomber-jackets/bomber23.jpg',
-          '/images/products/bomber-jackets/bomber24.jpg',
-          '/images/products/bomber-jackets/bomber25.jpg',
-          '/images/products/bomber-jackets/bomber26.jpg',
-          '/images/products/bomber-jackets/bomber27.jpg',
-          '/images/products/bomber-jackets/bomber28.jpg',
-          '/images/products/bomber-jackets/bomber29.jpg',
-          '/images/products/bomber-jackets/bomber30.jpg',
-        ],
-        description: 'Premium Ankara bomber jacket with authentic African prints. Perfect for casual wear and street style.',
-      },
-    ],
-  },
+const allProducts = [
+  { id: 1, name: 'Ankara Maxi Dress - Royal Blue', price: 8500, image: '/images/products/maxi-dress/maxi1.jpg', category: 'Maxi Dress', description: 'Elegant royal blue Ankara maxi dress. Perfect for special occasions.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 2, name: 'Ankara Bomber Jacket - Sunset', price: 12000, image: '/images/products/bomber-jackets/bomber1.jpg', category: 'Bomber Jackets', description: 'Stylish bomber jacket with sunset Ankara print.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 3, name: 'African Men Shirt - Classic', price: 6500, image: '/images/products/men-shirts/men-shirt-1.jpg', category: 'Men Shirts', description: 'Classic African print shirt for men.', sizes: ['S', 'M', 'L', 'XL', 'XXL'] },
+  { id: 4, name: 'Ankara Ladies Top - Elegant', price: 5500, image: '/images/products/ladies-tops/top1.jpg', category: 'Ladies Tops', description: 'Elegant Ankara ladies top with modern design.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 5, name: 'Sun Hat - Safari', price: 2500, image: '/images/products/sun-hats/sun1.JPG', category: 'Sun Hats', description: 'Comfortable sun hat with African print.', sizes: ['One Size'] },
+  { id: 6, name: 'Ankara Maxi Dress - Emerald', price: 8800, image: '/images/products/maxi-dress/maxi2.jpg', category: 'Maxi Dress', description: 'Beautiful emerald Ankara maxi dress.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 7, name: 'Ankara Bomber Jacket - Urban', price: 11500, image: '/images/products/bomber-jackets/bomber2.jpg', category: 'Bomber Jackets', description: 'Urban style bomber jacket with Ankara design.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 8, name: 'African Men Shirt - Premium', price: 7000, image: '/images/products/men-shirts/men-shirt-2.jpg', category: 'Men Shirts', description: 'Premium quality African print shirt.', sizes: ['S', 'M', 'L', 'XL', 'XXL'] },
+  { id: 9, name: 'Ankara Ladies Top - Chic', price: 5800, image: '/images/products/ladies-tops/top2.jpg', category: 'Ladies Tops', description: 'Chic Ankara top for everyday wear.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 10, name: 'Ankara Maxi Dress - Golden', price: 9200, image: '/images/products/maxi-dress/maxi3.jpg', category: 'Maxi Dress', description: 'Stunning golden Ankara maxi dress.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 11, name: 'Ankara Bomber Jacket - Classic', price: 12500, image: '/images/products/bomber-jackets/bomber3.jpg', category: 'Bomber Jackets', description: 'Classic bomber with bold Ankara patterns.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 12, name: 'Sun Hat - Beach', price: 2800, image: '/images/products/sun-hats/sun2.JPG', category: 'Sun Hats', description: 'Perfect beach companion with style.', sizes: ['One Size'] },
+  { id: 13, name: 'African Men Shirt - Modern', price: 6800, image: '/images/products/men-shirts/men-shirt-3.jpg', category: 'Men Shirts', description: 'Modern cut with traditional patterns.', sizes: ['S', 'M', 'L', 'XL', 'XXL'] },
+  { id: 14, name: 'Ankara Ladies Top - Vibrant', price: 6000, image: '/images/products/ladies-tops/top3.jpg', category: 'Ladies Tops', description: 'Vibrant colors for everyday elegance.', sizes: ['S', 'M', 'L', 'XL'] },
+  { id: 15, name: 'Ankara Maxi Dress - Sunset', price: 8700, image: '/images/products/maxi-dress/maxi4.jpg', category: 'Maxi Dress', description: 'Sunset inspired maxi dress design.', sizes: ['S', 'M', 'L', 'XL'] },
+];
+
+export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+  const productId = parseInt(params.slug);
+  const product = allProducts.find(p => p.id === productId) || allProducts[0];
   
-  'kitenge-prints': {
-  name: 'Ankara Kitenge Prints',
-  products: [
-    {
-      id: 'ankara-kitenge-prints',
-      name: 'Ankara Kitenge Print Fabrics - Premium Collection',
-      slug: 'ankara-kitenge-prints',
-      price: 2800,
-      image: '/images/products/kitenge-prints/ankaraprint1.jpeg',
-      gallery: [
-        '/images/products/kitenge-prints/ankaraprint1.jpeg',
-        '/images/products/kitenge-prints/ankaraprint2.jpeg',
-        '/images/products/kitenge-prints/ankaraprint3.jpeg',
-        '/images/products/kitenge-prints/ankaraprint4.jpeg',
-        '/images/products/kitenge-prints/ankaraprint5.jpeg',
-        '/images/products/kitenge-prints/ankaraprint6.jpeg',
-        '/images/products/kitenge-prints/ankaraprint7.jpeg',
-        '/images/products/kitenge-prints/ankaraprint8.jpeg',
-        '/images/products/kitenge-prints/ankaraprint9.jpeg',
-        '/images/products/kitenge-prints/ankaraprint10.jpeg',
-        '/images/products/kitenge-prints/ankaraprint11.jpeg',
-        '/images/products/kitenge-prints/ankaraprint12.jpeg',
-        '/images/products/kitenge-prints/ankaraprint13.jpeg',
-        '/images/products/kitenge-prints/ankaraprint14.jpeg',
-        '/images/products/kitenge-prints/ankaraprint15.jpeg',
-        '/images/products/kitenge-prints/ankaraprint16.jpeg',
-        '/images/products/kitenge-prints/ankaraprint17.jpeg',
-        '/images/products/kitenge-prints/ankaraprint18.jpeg',
-        '/images/products/kitenge-prints/ankaraprint19.jpeg',
-        '/images/products/kitenge-prints/ankaraprint20.jpeg',
-        '/images/products/kitenge-prints/ankaraprint21.jpeg',
-        '/images/products/kitenge-prints/ankaraprint22.jpeg',
-        '/images/products/kitenge-prints/ankaraprint23.jpeg',
-        '/images/products/kitenge-prints/ankaraprint24.jpeg',
-        '/images/products/kitenge-prints/ankaraprint25.jpeg',
-        '/images/products/kitenge-prints/ankaraprint26.jpeg',
-        '/images/products/kitenge-prints/ankaraprint27.jpeg',
-        '/images/products/kitenge-prints/ankaraprint28.jpeg',
-        '/images/products/kitenge-prints/ankaraprint29.jpeg',
-        '/images/products/kitenge-prints/ankaraprint30.jpeg',
-        '/images/products/kitenge-prints/ankaraprint31.jpeg',
-      ],
-      description: 'Premium Ankara Kitenge print fabrics. Authentic African designs, vibrant colors, high-quality material. Perfect for dresses, shirts, and custom tailoring.',
-    },
-  ],
-},
-'maxi-dress': {
-  name: 'Ankara Maxi Dress',
-  products: [
-    {
-      id: 'ankara-maxi-dress',
-      name: 'Ankara Maxi Dress - Premium Collection',
-      slug: 'ankara-maxi-dress',
-      price: 4500,
-      image: '/images/products/maxi-dress/maxi1.jpg',
-      gallery: [
-        '/images/products/maxi-dress/maxi1.jpg',
-        '/images/products/maxi-dress/maxi2.jpg',
-        '/images/products/maxi-dress/maxi3.jpg',
-        '/images/products/maxi-dress/maxi4.jpg',
-        '/images/products/maxi-dress/maxi5.jpg',
-        '/images/products/maxi-dress/maxi6.jpg',
-        '/images/products/maxi-dress/maxi7.jpg',
-        '/images/products/maxi-dress/maxi8.jpg',
-        '/images/products/maxi-dress/maxi9.jpg',
-        '/images/products/maxi-dress/maxi10.jpg',
-        '/images/products/maxi-dress/maxi11.jpg',
-        '/images/products/maxi-dress/maxi12.jpg',
-        '/images/products/maxi-dress/maxi13.jpg',
-        '/images/products/maxi-dress/maxi14.jpg',
-        '/images/products/maxi-dress/maxi15.jpg',
-        '/images/products/maxi-dress/maxi16.jpg',
-        '/images/products/maxi-dress/maxi17.jpg',
-        '/images/products/maxi-dress/maxi18.jpg',
-        '/images/products/maxi-dress/maxi19.jpg',
-        '/images/products/maxi-dress/maxi20.jpg',
-        '/images/products/maxi-dress/maxi21.jpg',
-        '/images/products/maxi-dress/maxi22.jpg',
-        '/images/products/maxi-dress/maxi23.jpg',
-        '/images/products/maxi-dress/maxi24.jpg',
-        '/images/products/maxi-dress/maxi25.jpg',
-      ],
-      description: 'Stunning Ankara maxi dresses with elegant African prints. Perfect for weddings, parties, or special occasions. Flowing silhouette, comfortable fit, premium quality fabric.',
-    },
-  ],
-},
+  const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const moreProducts = allProducts.filter(p => p.id !== product.id && !relatedProducts.find(r => r.id === p.id)).slice(0, 4);
 
-// Add all other categories here...
-};
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const [quantity, setQuantity] = useState(1);
+  const addToCart = useCartStore((s) => s.addItem);
 
-// Find product across all categories
-function findProduct(slug: string) {
-  for (const category of Object.values(categoryData)) {
-    const product = category.products.find(p => p.slug === slug);
-    if (product) return product;
-  }
-  return null;
-}
-
-export default function ProductDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  const product = findProduct(slug);
-  
-  const [selectedImage, setSelectedImage] = useState(0);
-
-  if (!product) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <Link href="/" className="text-[#2C5326] hover:underline">
-            Return to Homepage
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const images = product.gallery || [product.image];
-  const totalImages = images.length;
-
-  const nextImage = () => {
-    setSelectedImage((prev) => (prev + 1) % totalImages);
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: quantity,
+    });
   };
 
-  const prevImage = () => {
-    setSelectedImage((prev) => (prev - 1 + totalImages) % totalImages);
+  const handleWhatsAppOrder = () => {
+    const message = `Hi! I'd like to order:\n\n${product.name}\nSize: ${selectedSize}\nQuantity: ${quantity}\nTotal: KSh ${(product.price * quantity).toLocaleString()}\n\nProduct Link: ${window.location.href}`;
+    window.open(`https://wa.me/254700000000?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
-    <div className="bg-white py-12 px-6 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <Link 
-          href="/"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-[#2C5326] mb-8 transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Back to Shop
-        </Link>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* LEFT: Scrollable Image Gallery */}
-          <div>
-            {/* Main Image with Navigation Arrows */}
-            <div className="relative aspect-square bg-gray-100 rounded-2xl overflow-hidden mb-4 group">
+    <main className="bg-white min-h-screen">
+      <div className="pt-32 pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            <div className="relative aspect-[3/4] bg-gray-100 rounded-3xl overflow-hidden">
               <Image
-                src={images[selectedImage]}
+                src={product.image}
                 alt={product.name}
                 fill
                 className="object-cover"
                 priority
               />
-              
-              {/* Navigation Arrows */}
-              {totalImages > 1 && (
-                <>
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-gray-900" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
-                  >
-                    <ChevronRight className="w-6 h-6 text-gray-900" />
-                  </button>
-                </>
-              )}
-
-              {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm font-medium">
-                {selectedImage + 1} / {totalImages}
-              </div>
             </div>
 
-            {/* Thumbnail Gallery - Horizontal Scroll */}
-            {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
-                {images.map((img: string, idx: number) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedImage(idx)}
-                    className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImage === idx 
-                        ? 'border-[#2C5326] scale-95' 
-                        : 'border-gray-200 hover:border-gray-400'
-                    }`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${product.name} view ${idx + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
+            <div className="flex flex-col justify-center">
+              <div className="inline-block px-3 py-1 bg-[#2C5326]/10 text-[#2C5326] rounded-full text-sm font-semibold mb-4 w-fit">
+                {product.category}
               </div>
-            )}
-
-            {/* Swipe Hint */}
-            {totalImages > 1 && (
-              <p className="text-center text-sm text-gray-500 mt-4">
-                ← Swipe or click arrows to view all {totalImages} photos →
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                {product.name}
+              </h1>
+              <p className="text-3xl font-bold text-gray-900 mb-6">
+                KSh {product.price.toLocaleString()}
               </p>
-            )}
-          </div>
-
-          {/* RIGHT: Product Info */}
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              {product.name}
-            </h1>
-            
-            <div className="text-4xl font-bold text-[#2C5326] mb-6">
-              KSh {product.price.toLocaleString()}
-            </div>
-
-            {product.description && (
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 {product.description}
               </p>
-            )}
 
-            {/* Action Buttons */}
-            <div className="space-y-4">
-              <button className="w-full bg-[#2C5326] text-white py-4 rounded-full hover:bg-[#234219] transition-all font-semibold text-lg flex items-center justify-center gap-2">
-                <ShoppingBag className="w-5 h-5" />
-                Add to Cart
-              </button>
-
-              <a
-                href={`https://wa.me/254712345678?text=Hello%20Lamafrican!%20I%20want%20to%20order:%0A%0A${encodeURIComponent(product.name)}%0APrice:%20KSh%20${product.price.toLocaleString()}`}
-                target="_blank"
-                className="block w-full bg-green-500 text-white py-4 rounded-full hover:bg-green-600 transition-all font-semibold text-lg text-center"
-              >
-                Order via WhatsApp 💬
-              </a>
-            </div>
-
-            {/* Product Features */}
-            <div className="mt-8 border-t border-gray-200 pt-8">
-              <h3 className="font-semibold text-lg mb-4">Product Features</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <span className="text-[#2C5326]">✓</span> 100% Premium Ankara Fabric
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#2C5326]">✓</span> Handcrafted by Local Artisans
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#2C5326]">✓</span> Authentic African Design
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#2C5326]">✓</span> Fast Delivery Nationwide
-                </li>
-              </ul>
-            </div>
-
-            {/* Payment Methods */}
-            <div className="mt-8 border-t border-gray-200 pt-8">
-              <h3 className="font-semibold text-lg mb-4">Payment Options</h3>
-              <div className="flex gap-3">
-                <div className="px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium">
-                  M-Pesa
-                </div>
-                <div className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
-                  Visa / Mastercard
+              <div className="mb-8">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">Select Size</label>
+                <div className="flex gap-3 flex-wrap">
+                  {product.sizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                        selectedSize === size
+                          ? 'bg-[#2C5326] text-white shadow-lg'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
                 </div>
               </div>
+
+              <div className="mb-8">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">Quantity</label>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 font-bold text-xl transition-all"
+                  >
+                    −
+                  </button>
+                  <span className="text-2xl font-bold w-12 text-center">{quantity}</span>
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 font-bold text-xl transition-all"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <button
+                  onClick={handleAddToCart}
+                  className="w-full bg-[#2C5326] text-white py-4 rounded-full font-bold text-lg hover:bg-[#234219] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  Add to Cart
+                </button>
+
+                <button
+                  onClick={handleWhatsAppOrder}
+                  className="w-full bg-green-600 text-white py-4 rounded-full font-bold text-lg hover:bg-green-700 transition-all flex items-center justify-center gap-2 hover:shadow-lg transform hover:scale-[1.02]"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Order via WhatsApp
+                </button>
+
+                <Link
+                  href="/checkout"
+                  className="w-full bg-blue-600 text-white py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all flex items-center justify-center gap-2 hover:shadow-lg transform hover:scale-[1.02]"
+                >
+                  <CreditCard className="w-5 h-5" />
+                  Pay with M-Pesa
+                </Link>
+              </div>
             </div>
+          </div>
+
+          {relatedProducts.length > 0 && (
+            <div className="mb-20">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+                  <TrendingUp className="w-7 h-7 text-[#2C5326]" />
+                  Perfect Match for You
+                </h2>
+                <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                  View All <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {relatedProducts.map((item) => (
+                  <Link key={item.id} href={`/products/${item.id}`} className="group">
+                    <div className="relative aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden mb-4">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#2C5326] transition-colors line-clamp-2 mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-lg font-bold text-gray-900">
+                      KSh {item.price.toLocaleString()}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {moreProducts.length > 0 && (
+            <div className="mb-20">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+                  <Sparkles className="w-7 h-7 text-orange-500" />
+                  Keep Exploring
+                </h2>
+                <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                  View All <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {moreProducts.map((item) => (
+                  <Link key={item.id} href={`/products/${item.id}`} className="group">
+                    <div className="relative aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden mb-4">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#2C5326] transition-colors line-clamp-2 mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-lg font-bold text-gray-900">
+                      KSh {item.price.toLocaleString()}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="bg-gradient-to-r from-[#2C5326] to-[#3d6e33] rounded-3xl p-12 text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Discover More Styles</h2>
+            <p className="text-lg mb-8 opacity-90">Explore our full collection of handcrafted African fashion</p>
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 bg-white text-[#2C5326] px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all"
+            >
+              Browse All Products <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

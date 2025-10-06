@@ -5,11 +5,13 @@ import Image from 'next/image';
 import { ShoppingCart, User, Menu, X } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const itemCount = useCartStore((s) => s.getItemCount());
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -17,121 +19,180 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const isActive = (path: string) => pathname === path;
+
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl shadow-md' : 'bg-white shadow-sm'}`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="h-20 flex items-center justify-between">
-          {/* LOGO - Larger Size */}
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-md' : 'bg-white/90 backdrop-blur-md'}`}>
+      <div className="max-w-full">
+        <div className="h-24 flex items-center justify-between px-6">
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image 
               src="/logo@2x.png" 
               alt="Lamafrican Fashion" 
-              width={180} 
-              height={50} 
+              width={200} 
+              height={55} 
               priority 
-              className="h-12 w-auto hover:opacity-80 transition-opacity"
+              className="h-14 w-auto hover:opacity-80 transition-opacity"
             />
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm font-medium text-gray-700 hover:text-[#2C5326] transition-colors">
+          <nav className="hidden md:flex items-center gap-10">
+            <Link 
+              href="/" 
+              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+                isActive('/') 
+                  ? 'text-[#2C5326]' 
+                  : 'text-gray-800 hover:text-[#2C5326]'
+              }`}
+            >
               Home
+              {isActive('/') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
-            <Link href="/products" className="text-sm font-medium text-gray-700 hover:text-[#2C5326] transition-colors">
+            <Link 
+              href="/products" 
+              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+                isActive('/products') 
+                  ? 'text-[#2C5326]' 
+                  : 'text-gray-800 hover:text-[#2C5326]'
+              }`}
+            >
               Shop
+              {isActive('/products') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
-            <Link href="/custom" className="text-sm font-medium text-gray-700 hover:text-[#2C5326] transition-colors">
+            <Link 
+              href="/custom" 
+              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+                isActive('/custom') 
+                  ? 'text-[#2C5326]' 
+                  : 'text-gray-800 hover:text-[#2C5326]'
+              }`}
+            >
               Custom Order
+              {isActive('/custom') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
-            <Link href="/lookbook" className="text-sm font-medium text-gray-700 hover:text-[#2C5326] transition-colors">
+            <Link 
+              href="/lookbook" 
+              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+                isActive('/lookbook') 
+                  ? 'text-[#2C5326]' 
+                  : 'text-gray-800 hover:text-[#2C5326]'
+              }`}
+            >
               Look Book
+              {isActive('/lookbook') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-[#2C5326] transition-colors">
+            <Link 
+              href="/contact" 
+              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+                isActive('/contact') 
+                  ? 'text-[#2C5326]' 
+                  : 'text-gray-800 hover:text-[#2C5326]'
+              }`}
+            >
               Contact
+              {isActive('/contact') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
           </nav>
 
-          {/* RIGHT ACTIONS */}
-          <div className="flex items-center gap-5">
-            {/* User Icon */}
+          <div className="flex items-center gap-6">
             <Link 
               href="/auth/login" 
-              className="hidden md:flex text-gray-700 hover:text-[#2C5326] transition-colors"
+              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Account"
             >
-              <User className="w-5 h-5" />
+              <User className="w-5 h-5 text-gray-800" strokeWidth={2.5} />
             </Link>
 
-            {/* Cart with Badge */}
             <Link 
               href="/cart" 
-              className="relative text-gray-700 hover:text-[#2C5326] transition-colors"
+              className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Shopping Cart"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5 text-gray-800" strokeWidth={2.5} />
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#2C5326] text-white text-xs font-bold rounded-full w-5 h-5 grid place-items-center">
+                <span className="absolute -top-1 -right-1 bg-[#2C5326] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {itemCount}
                 </span>
               )}
             </Link>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 p-2"
-              aria-label="Toggle menu"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-6 h-6" strokeWidth={2.5} /> : <Menu className="w-6 h-6" strokeWidth={2.5} />}
             </button>
           </div>
         </div>
 
-        {/* MOBILE MENU */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 py-4 space-y-3">
-            <Link 
-              href="/" 
-              className="block text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/products" 
-              className="block text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Shop
-            </Link>
-            <Link 
-              href="/custom" 
-              className="block text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Custom Order
-            </Link>
-            <Link 
-              href="/lookbook" 
-              className="block text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Look Book
-            </Link>
-            <Link 
-              href="/contact" 
-              className="block text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link 
-              href="/auth/login" 
-              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#2C5326] py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <User className="w-4 h-4" />
-              Login
-            </Link>
+          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl">
+            <nav className="px-6 py-6 space-y-1">
+              <Link 
+                href="/" 
+                className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
+                  isActive('/') 
+                    ? 'bg-[#2C5326] text-white' 
+                    : 'text-gray-800 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/products" 
+                className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
+                  isActive('/products') 
+                    ? 'bg-[#2C5326] text-white' 
+                    : 'text-gray-800 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Shop
+              </Link>
+              <Link 
+                href="/custom" 
+                className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
+                  isActive('/custom') 
+                    ? 'bg-[#2C5326] text-white' 
+                    : 'text-gray-800 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Custom Order
+              </Link>
+              <Link 
+                href="/lookbook" 
+                className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
+                  isActive('/lookbook') 
+                    ? 'bg-[#2C5326] text-white' 
+                    : 'text-gray-800 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Look Book
+              </Link>
+              <Link 
+                href="/contact" 
+                className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
+                  isActive('/contact') 
+                    ? 'bg-[#2C5326] text-white' 
+                    : 'text-gray-800 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link 
+                href="/auth/login" 
+                className="flex items-center gap-3 text-base font-semibold py-3 px-4 rounded-lg text-gray-800 hover:bg-gray-100 transition-colors mt-4 border-t border-gray-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <User className="w-5 h-5" strokeWidth={2.5} />
+                Account
+              </Link>
+            </nav>
           </div>
         )}
       </div>
