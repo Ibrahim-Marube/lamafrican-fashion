@@ -1,0 +1,15 @@
+/* frontend/src/app/globals.css */
+
+/* Tailwind v4 entrypoint: imports base + components + utilities */
+@import "tailwindcss";
+
+/* Your global CSS (plain CSS only) */
+html { scroll-behavior: smooth; }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Motion helpers (avoid @apply here; use utilities in JSX instead) */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+.fade-in.show { opacity: 1; transform: translateY(0); }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
