@@ -7,8 +7,6 @@ import Image from 'next/image';
 const slides = [
   '/images/hero/slide1.png',
   '/images/hero/slide2.png',
-  //'/images/hero/slide3.jpg',
-  //'/images/hero/slide4.jpg',
 ];
 
 export default function HeroSlider() {
@@ -40,38 +38,38 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50" />
 
       <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="max-w-4xl mx-auto px-6 text-center text-white">
-          <p className="text-sm md:text-base font-medium tracking-wider mb-4 animate-fade-in">
+        <div className="max-w-5xl mx-auto px-6 text-center text-white">
+          <p className="text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in">
             Welcome to
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight leading-none text-white animate-slide-up">
             Lamafrican Fashion
           </h1>
-          <p className="text-2xl md:text-3xl font-light mb-8 italic animate-fade-in-delay">
+          <p className="text-xl md:text-3xl font-light mb-10 tracking-wide animate-fade-in-delay">
             Life isn't perfect but your outfit can be
           </p>
-          <p className="text-base md:text-lg mb-10 max-w-2xl mx-auto animate-fade-in-delay-2">
+          <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto font-light leading-relaxed opacity-95 animate-fade-in-delay-2">
             Discover authentic African fashion. Handcrafted designs, premium fabrics, timeless style.
           </p>
           <Link
             href="/products"
-            className="inline-block bg-[#2C5326] text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-[#234219] transition-all transform hover:scale-105 shadow-lg animate-fade-in-delay-3"
+            className="inline-block bg-[#2C5326] text-white px-12 py-5 rounded-full text-base md:text-lg font-semibold hover:bg-[#1f3a1a] transition-all transform hover:scale-105 shadow-2xl animate-fade-in-delay-3"
           >
             Shop All Collections
           </Link>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+            className={`h-1 rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'bg-white w-12' : 'bg-white/50 w-8'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
