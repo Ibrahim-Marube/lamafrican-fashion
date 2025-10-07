@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingCart, MessageCircle, CreditCard, ArrowRight, TrendingUp, Sparkles } from 'lucide-react';
@@ -24,8 +24,9 @@ const allProducts = [
   { id: 15, name: 'Ankara Maxi Dress - Sunset', price: 8700, image: '/images/products/maxi-dress/maxi4.jpg', category: 'Maxi Dress', description: 'Sunset inspired maxi dress design.', sizes: ['S', 'M', 'L', 'XL'] },
 ];
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
-  const productId = parseInt(params.slug);
+export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const productId = parseInt(slug);
   const product = allProducts.find(p => p.id === productId) || allProducts[0];
   
   const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
