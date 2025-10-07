@@ -54,7 +54,6 @@ const categories = [
   { id: 19, name: 'Traditional Wedding Dresses', slug: 'traditional-wedding', images: Array.from({ length: 10 }, (_, i) => `/images/products/traditional-wedding/wedding${i + 1}.jpg`) },
 ];
 
-
 function CategoryCard({ category, index }: { category: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -152,6 +151,32 @@ export default function Home() {
     <main className="bg-white">
       <HeroSlider />
 
+      <section className="py-20 px-6 fade-in">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Shop by Category</h2>
+            <p className="text-lg text-gray-600 mb-8">Explore our curated collections of African fashion</p>
+            
+            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-12">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={`/categories/${cat.slug}`}
+                  className="px-5 py-2.5 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#2C5326] hover:text-[#2C5326] hover:bg-[#2C5326]/5 transition-all"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {categories.map((category, idx) => (
+              <CategoryCard key={category.id} category={category} index={idx} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-10">
@@ -185,32 +210,6 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {featuredProducts.slice(0, 5).map((product) => (
               <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 fade-in">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Shop by Category</h2>
-            <p className="text-lg text-gray-600 mb-8">Explore our curated collections of African fashion</p>
-            
-            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-12">
-              {categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  href={`/categories/${cat.slug}`}
-                  className="px-5 py-2.5 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#2C5326] hover:text-[#2C5326] hover:bg-[#2C5326]/5 transition-all"
-                >
-                  {cat.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {categories.map((category, idx) => (
-              <CategoryCard key={category.id} category={category} index={idx} />
             ))}
           </div>
         </div>
