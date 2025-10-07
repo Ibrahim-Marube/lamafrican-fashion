@@ -38,7 +38,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
   const handleAddToCart = () => {
     addToCart({
-      id: product.id,
+      id: String(product.id),
       name: product.name,
       price: product.price,
       image: product.image,

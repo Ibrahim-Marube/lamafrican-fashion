@@ -3,14 +3,19 @@ import { useState, useEffect } from 'react';
 import { Trash2, Eye, X, Edit, Plus, Save } from 'lucide-react';
 import Image from 'next/image';
 
+type Contact = { _id: string; name: string; email: string; phone: string; message: string; subject?: string; createdAt: string };
+type Order = { _id: string; name: string; email: string; phone: string; measurements: any; status: string; fabricChoice?: string; designPreferences?: string; createdAt: string };
+type Product = { _id: string; name: string; price: number; description: string; category: string; stock: number; image: string; primaryImage?: string; sku?: string };
+
+
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('contacts');
-  const [contacts, setContacts] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [selectedContact, setSelectedContact] = useState(null);
-  const [selectedOrder, setSelectedOrder] = useState(null);
-  const [editingProduct, setEditingProduct] = useState(null);
+  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -37,20 +42,20 @@ export default function AdminDashboard() {
     setLoading(false);
   };
 
-  const deleteContact = async (id) => {
+  const deleteContact = async (id: string) => {
     if (!confirm('Delete this contact?')) return;
     await fetch(`/api/contacts?id=${id}`, { method: 'DELETE' });
     fetchData();
   };
 
-  const deleteOrder = async (id) => {
+  const deleteOrder = async (id: string) => {
     if (!confirm('Delete this order?')) return;
     await fetch(`/api/custom-orders?id=${id}`, { method: 'DELETE' });
     setSelectedOrder(null);
     fetchData();
   };
 
-  const updateStatus = async (id, status) => {
+  const updateStatus = async (id: string, status: string) => {
     await fetch('/api/custom-orders', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -62,7 +67,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const updateProduct = async (product) => {
+  const updateProduct = async (product: Product) => {
     try {
       await fetch('/api/products', {
         method: 'PUT',
@@ -76,7 +81,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const deleteProduct = async (id) => {
+  const deleteProduct = async (id: string) => {
     if (!confirm('Delete this product?')) return;
     await fetch(`/api/products?id=${id}`, { method: 'DELETE' });
     fetchData();
@@ -291,8 +296,8 @@ export default function AdminDashboard() {
               <div>
                 <strong>Measurements:</strong>
                 <div className="grid grid-cols-3 gap-2 mt-2 text-sm">
-                  {Object.entries(selectedOrder.measurements || {}).map(([k, v]) => (
-                    v && <div key={k}>{k}: {v}cm</div>
+                  {(Object.entries(selectedOrder.measurements || {}) as [string, unknown][]).map(([k, v]) => (
+                    v ? <div key={String(k)}>{k}: {String(v)}cm</div> : null
                   ))}
                 </div>
               </div>
