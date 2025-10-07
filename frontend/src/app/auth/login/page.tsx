@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import api from '@/lib/api';
+import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,14 +17,21 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await api.post('/auth/login', formData);
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      
-      alert('Login successful! 🎉');
-      router.push('/');
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed');
+      const result = await signIn('credentials', {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError('Invalid credentials');
+      } else {
+        alert('Login successful! 🎉');
+        router.push('/');
+        router.refresh();
+      }
+    } catch (err) {
+      setError('Login failed');
     } finally {
       setLoading(false);
     }

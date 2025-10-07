@@ -2,16 +2,18 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShoppingCart, User, Menu, X } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, LogOut } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 
 export default function Navbar() {
   const itemCount = useCartStore((s) => s.getItemCount());
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -20,6 +22,10 @@ export default function Navbar() {
   }, []);
 
   const isActive = (path: string) => pathname === path;
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: '/' });
+  };
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-md' : 'bg-white/90 backdrop-blur-md'}`}>
@@ -95,13 +101,33 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-6">
-            <Link 
-              href="/auth/login" 
-              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
-              aria-label="Account"
-            >
-              <User className="w-5 h-5 text-gray-800" strokeWidth={2.5} />
-            </Link>
+            {status === 'authenticated' ? (
+              <>
+                <div className="hidden md:flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-full">
+                  <User className="w-4 h-4 text-[#2C5326]" strokeWidth={2.5} />
+                  <span className="text-sm font-semibold text-gray-800">{session.user?.email}</span>
+                  {session.user?.role === 'admin' && (
+                    <span className="text-xs bg-[#2C5326] text-white px-2 py-0.5 rounded-full">Admin</span>
+                  )}
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-red-50 transition-colors"
+                  aria-label="Logout"
+                  title="Logout"
+                >
+                  <LogOut className="w-5 h-5 text-red-600" strokeWidth={2.5} />
+                </button>
+              </>
+            ) : (
+              <Link 
+                href="/auth/login" 
+                className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+                aria-label="Account"
+              >
+                <User className="w-5 h-5 text-gray-800" strokeWidth={2.5} />
+              </Link>
+            )}
 
             <Link 
               href="/cart" 
@@ -184,14 +210,41 @@ export default function Navbar() {
               >
                 Contact
               </Link>
-              <Link 
-                href="/auth/login" 
-                className="flex items-center gap-3 text-base font-semibold py-3 px-4 rounded-lg text-gray-800 hover:bg-gray-100 transition-colors mt-4 border-t border-gray-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <User className="w-5 h-5" strokeWidth={2.5} />
-                Account
-              </Link>
+
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                {status === 'authenticated' ? (
+                  <>
+                    <div className="flex items-center gap-3 py-3 px-4 bg-gray-100 rounded-lg mb-2">
+                      <User className="w-5 h-5 text-[#2C5326]" strokeWidth={2.5} />
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-gray-800">{session.user?.email}</p>
+                        {session.user?.role === 'admin' && (
+                          <span className="text-xs bg-[#2C5326] text-white px-2 py-0.5 rounded-full mt-1 inline-block">Admin</span>
+                        )}
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        handleSignOut();
+                      }}
+                      className="flex items-center gap-3 text-base font-semibold py-3 px-4 rounded-lg text-red-600 hover:bg-red-50 transition-colors w-full"
+                    >
+                      <LogOut className="w-5 h-5" strokeWidth={2.5} />
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <Link 
+                    href="/auth/login" 
+                    className="flex items-center gap-3 text-base font-semibold py-3 px-4 rounded-lg text-gray-800 hover:bg-gray-100 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <User className="w-5 h-5" strokeWidth={2.5} />
+                    Login / Register
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}

@@ -1,11 +1,13 @@
 import Navbar from '@/components/Navbar';
 import type { Metadata } from 'next';
 import './globals.css';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'Lamafrican Fashion | Authentic African Fashion',
   description: 'Life isn\'t perfect but your outfit can be',
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -14,10 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main className="pt-40">  {/* Increased from pt-20 to pt-24 */}
-          {children}
-        </main>
+        <Providers>
+          <Navbar />
+          <main className="pt-40">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );
