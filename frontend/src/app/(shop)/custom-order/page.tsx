@@ -155,20 +155,24 @@ export default function CustomOrderPage() {
             </div>
 
             <div className="space-y-6">
-              {/* Measurement Guide Image Placeholder */}
-              <div className="bg-gray-100 rounded-xl p-8 text-center">
-                <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-                  <User className="w-24 h-24 text-gray-400" />
+              {/* Measurement Guide Image - 800x1200 Portrait */}
+              <div className="bg-white rounded-xl p-4 border border-gray-200 flex justify-center">
+                <div className="relative w-full max-w-[800px]" style={{ aspectRatio: '2/3' }}>
+                  <Image
+                    src="/images/measurement-guide.png"
+                    alt="Measurement Guide"
+                    width={800}
+                    height={1200}
+                    className="object-contain rounded-lg"
+                    priority
+                  />
                 </div>
-                <p className="text-sm text-gray-600">
-                  Measurement guide illustration
-                </p>
               </div>
 
               {/* Measurement Tips */}
               <div className="space-y-4">
                 <h3 className="font-semibold text-lg text-gray-900">Measurement Tips:</h3>
-                <ul className="space-y-3 text-gray-700">
+                <ul className="space-y-3 text-gray-700 text-sm">
                   <li className="flex gap-3">
                     <span className="text-[#2C5326] font-bold">1.</span>
                     <span>Use a flexible measuring tape</span>
@@ -196,15 +200,18 @@ export default function CustomOrderPage() {
                 </ul>
               </div>
 
-              {/* Video Tutorial Placeholder */}
+              {/* Help Section */}
               <div className="bg-[#2C5326] text-white p-6 rounded-xl">
                 <h3 className="font-semibold text-lg mb-2">Need Help?</h3>
                 <p className="text-sm mb-4">
-                  Watch our video tutorial on how to take accurate measurements.
+                  Contact us if you need assistance with measurements or have questions about your custom order.
                 </p>
-                <button className="bg-white text-[#2C5326] px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-all">
-                  Watch Tutorial
-                </button>
+                <Link 
+                  href="/contact"
+                  className="inline-block bg-white text-[#2C5326] px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-all"
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>
@@ -213,7 +220,7 @@ export default function CustomOrderPage() {
           <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
               <User className="w-8 h-8 text-[#2C5326]" />
-              <h2 className="text-3xl font-bold text-gray-900">Fill The Form Below</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Order Form</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -500,7 +507,7 @@ export default function CustomOrderPage() {
 
               {/* Preferences */}
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900 border-b pb-2">Preferences</h3>
+                <h3 className="text-xl font-semibold text-gray-900 border-b pb-2">Design Preferences</h3>
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Material</label>
@@ -564,7 +571,7 @@ export default function CustomOrderPage() {
               </button>
 
               {submitMessage && (
-                <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-lg text-center">
+                <div className={`${submitMessage.includes('✅') ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'} border px-6 py-4 rounded-lg text-center`}>
                   {submitMessage}
                 </div>
               )}
