@@ -52,40 +52,80 @@ export default function CustomOrderPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage('');
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage('✅ Order submitted successfully! We will contact you soon.');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        neck: '',
-        overBust: '',
-        bust: '',
-        underBust: '',
-        waist: '',
-        hips: '',
-        neckToHeel: '',
-        neckToAboveKnee: '',
-        aboveKneeToAnkle: '',
-        armLength: '',
-        shoulderSeam: '',
-        armHole: '',
-        bicep: '',
-        foreArm: '',
-        wrist: '',
-        vNeckCut: '',
-        shoulderToWaist: '',
-        waistToAboveKnee: '',
-        preferredMaterial: '',
-        customRequest: '',
+    try {
+      const response = await fetch('/api/custom-orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          measurements: {
+            neck: formData.neck,
+            overBust: formData.overBust,
+            bust: formData.bust,
+            underBust: formData.underBust,
+            waist: formData.waist,
+            hips: formData.hips,
+            neckToHeel: formData.neckToHeel,
+            neckToAboveKnee: formData.neckToAboveKnee,
+            aboveKneeToAnkle: formData.aboveKneeToAnkle,
+            armLength: formData.armLength,
+            shoulderSeam: formData.shoulderSeam,
+            armHole: formData.armHole,
+            bicep: formData.bicep,
+            foreArm: formData.foreArm,
+            wrist: formData.wrist,
+            vNeckCut: formData.vNeckCut,
+            shoulderToWaist: formData.shoulderToWaist,
+            waistToAboveKnee: formData.waistToAboveKnee,
+          },
+          designPreferences: formData.customRequest,
+          fabricChoice: formData.preferredMaterial,
+        }),
       });
-      setImageFile(null);
-    }, 2000);
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitMessage('✅ Order submitted successfully! We will contact you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          neck: '',
+          overBust: '',
+          bust: '',
+          underBust: '',
+          waist: '',
+          hips: '',
+          neckToHeel: '',
+          neckToAboveKnee: '',
+          aboveKneeToAnkle: '',
+          armLength: '',
+          shoulderSeam: '',
+          armHole: '',
+          bicep: '',
+          foreArm: '',
+          wrist: '',
+          vNeckCut: '',
+          shoulderToWaist: '',
+          waistToAboveKnee: '',
+          preferredMaterial: '',
+          customRequest: '',
+        });
+        setImageFile(null);
+      } else {
+        setSubmitMessage('❌ Failed to submit. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      setSubmitMessage('❌ Failed to submit. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

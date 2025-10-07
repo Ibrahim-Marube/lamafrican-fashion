@@ -32,14 +32,14 @@ export default function Navbar() {
               width={200} 
               height={55} 
               priority 
-              className="h-14 w-auto hover:opacity-80 transition-opacity"
+              className="h-18 w-auto hover:opacity-80 transition-opacity"
             />
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">
             <Link 
               href="/" 
-              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+              className={`text-[17px] font-bold transition-colors relative py-2 ${
                 isActive('/') 
                   ? 'text-[#2C5326]' 
                   : 'text-gray-800 hover:text-[#2C5326]'
@@ -50,7 +50,7 @@ export default function Navbar() {
             </Link>
             <Link 
               href="/products" 
-              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+              className={`text-[17px] font-bold transition-colors relative py-2 ${
                 isActive('/products') 
                   ? 'text-[#2C5326]' 
                   : 'text-gray-800 hover:text-[#2C5326]'
@@ -60,8 +60,8 @@ export default function Navbar() {
               {isActive('/products') && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2C5326]"></span>}
             </Link>
             <Link 
-              href="/custom" 
-              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+              href="/custom-order" 
+              className={`text-[17px] font-bold transition-colors relative py-2 ${
                 isActive('/custom') 
                   ? 'text-[#2C5326]' 
                   : 'text-gray-800 hover:text-[#2C5326]'
@@ -72,7 +72,7 @@ export default function Navbar() {
             </Link>
             <Link 
               href="/lookbook" 
-              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+              className={`text-[17px] font-bold transition-colors relative py-2 ${
                 isActive('/lookbook') 
                   ? 'text-[#2C5326]' 
                   : 'text-gray-800 hover:text-[#2C5326]'
@@ -83,7 +83,7 @@ export default function Navbar() {
             </Link>
             <Link 
               href="/contact" 
-              className={`text-[15px] font-semibold transition-colors relative py-2 ${
+              className={`text-[17px] font-bold transition-colors relative py-2 ${
                 isActive('/contact') 
                   ? 'text-[#2C5326]' 
                   : 'text-gray-800 hover:text-[#2C5326]'
@@ -152,7 +152,7 @@ export default function Navbar() {
                 Shop
               </Link>
               <Link 
-                href="/custom" 
+                href="/custom-order" 
                 className={`block text-base font-semibold py-3 px-4 rounded-lg transition-colors ${
                   isActive('/custom') 
                     ? 'bg-[#2C5326] text-white' 

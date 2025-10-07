@@ -7,6 +7,8 @@ import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import connectDB from './config/database';
 import authRoutes from './routes/auth';
+import contactRoutes from './routes/contactRoutes';
+import customOrderRoutes from './routes/customOrderRoutes';
 import productRoutes from './routes/products';
 
 dotenv.config();
@@ -38,6 +40,8 @@ app.use('/api/', limiter);
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/contacts', contactRoutes);
+app.use('/api/custom-orders', customOrderRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

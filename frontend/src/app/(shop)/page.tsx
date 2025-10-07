@@ -191,9 +191,21 @@ export default function Home() {
 
       <section className="py-20 px-6 fade-in">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Shop by Category</h2>
-            <p className="text-lg text-gray-600">Explore our curated collections of African fashion</p>
+            <p className="text-lg text-gray-600 mb-8">Explore our curated collections of African fashion</p>
+            
+            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-12">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={`/categories/${cat.slug}`}
+                  className="px-5 py-2.5 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#2C5326] hover:text-[#2C5326] hover:bg-[#2C5326]/5 transition-all"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {categories.map((category, idx) => (
