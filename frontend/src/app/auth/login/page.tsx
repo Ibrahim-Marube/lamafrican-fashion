@@ -26,8 +26,15 @@ export default function LoginPage() {
       if (result?.error) {
         setError('Invalid credentials');
       } else {
-        alert('Login successful! 🎉');
-        router.push('/');
+        // Fetch session to check user role
+        const sessionRes = await fetch('/api/auth/session');
+        const session = await sessionRes.json();
+        
+        if (session?.user?.role === 'admin') {
+          router.push('/admin');
+        } else {
+          router.push('/');
+        }
         router.refresh();
       }
     } catch (err) {

@@ -12,13 +12,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (credentials?.email === "admin@lamafrican.com" && credentials?.password === "admin123") {
-          return { id: "1", email: credentials.email, role: "admin" }
+        try {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: credentials?.email,
+              password: credentials?.password,
+            }),
+          })
+
+          const data = await res.json()
+
+          if (res.ok && data.user) {
+            return {
+              id: data.user.id,
+              email: data.user.email,
+              name: data.user.name,
+              role: data.user.role,
+            }
+          }
+          return null
+        } catch (error) {
+          return null
         }
-        if (credentials?.email === "user@lamafrican.com" && credentials?.password === "user123") {
-          return { id: "2", email: credentials.email, role: "user" }
-        }
-        return null
       }
     })
   ],
@@ -26,12 +43,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role
+        token.name = user.name
       }
       return token
     },
     async session({ session, token }) {
       if (session?.user) {
         session.user.role = token.role
+        session.user.name = token.name
       }
       return session
     }

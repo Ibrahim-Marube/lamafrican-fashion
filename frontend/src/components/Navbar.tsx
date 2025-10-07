@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShoppingCart, User, Menu, X, LogOut } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, LogOut, Shield } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -100,16 +100,28 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             {status === 'authenticated' ? (
               <>
                 <div className="hidden md:flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-full">
                   <User className="w-4 h-4 text-[#2C5326]" strokeWidth={2.5} />
-                  <span className="text-sm font-semibold text-gray-800">{session.user?.email}</span>
+                  <span className="text-sm font-semibold text-gray-800">{session.user?.name || session.user?.email}</span>
                   {session.user?.role === 'admin' && (
                     <span className="text-xs bg-[#2C5326] text-white px-2 py-0.5 rounded-full">Admin</span>
                   )}
                 </div>
+                
+                {session.user?.role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#2C5326]/10 transition-colors"
+                    aria-label="Admin Dashboard"
+                    title="Admin Dashboard"
+                  >
+                    <Shield className="w-5 h-5 text-[#2C5326]" strokeWidth={2.5} />
+                  </Link>
+                )}
+                
                 <button
                   onClick={handleSignOut}
                   className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-red-50 transition-colors"
@@ -217,12 +229,24 @@ export default function Navbar() {
                     <div className="flex items-center gap-3 py-3 px-4 bg-gray-100 rounded-lg mb-2">
                       <User className="w-5 h-5 text-[#2C5326]" strokeWidth={2.5} />
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-gray-800">{session.user?.email}</p>
+                        <p className="text-sm font-semibold text-gray-800">{session.user?.name || session.user?.email}</p>
                         {session.user?.role === 'admin' && (
                           <span className="text-xs bg-[#2C5326] text-white px-2 py-0.5 rounded-full mt-1 inline-block">Admin</span>
                         )}
                       </div>
                     </div>
+                    
+                    {session.user?.role === 'admin' && (
+                      <Link
+                        href="/admin"
+                        className="flex items-center gap-3 text-base font-semibold py-3 px-4 rounded-lg text-[#2C5326] hover:bg-[#2C5326]/10 transition-colors mb-2"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Shield className="w-5 h-5" strokeWidth={2.5} />
+                        Admin Dashboard
+                      </Link>
+                    )}
+                    
                     <button 
                       onClick={() => {
                         setIsMenuOpen(false);
