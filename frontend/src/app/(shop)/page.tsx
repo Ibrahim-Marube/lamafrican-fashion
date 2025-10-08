@@ -33,9 +33,9 @@ const trendingProducts = allProducts.filter(p => p.badge === 'Trending');
 const featuredProducts = allProducts.filter(p => p.badge === 'Featured');
 
 const categories = [
-  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats', images: Array.from({ length: 5 }, (_, i) => `/images/products/sun-hats/sun${i + 1}.JPG`) },
+  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats', images: Array.from({ length: 6 }, (_, i) => `/images/products/sun-hats/sun${i + 1}.JPG`) },
   { id: 2, name: 'African Men Shirts', slug: 'men-shirts', images: ['/images/products/men-shirts/men-shirt-1.jpg', '/images/products/men-shirts/men-shirt-2.jpg', '/images/products/men-shirts/men-shirt-3.jpg', '/images/products/men-shirts/men-shirt-4.jpg', '/images/products/men-shirts/men-shirt-5.jpg', '/images/products/men-shirts/men-shirt-6.jpg', '/images/products/men-shirts/men-shirt-7.jpg', '/images/products/men-shirts/men-shirt-8.jpg', '/images/products/men-shirts/men-shirt-9.jpg', '/images/products/men-shirts/men-shirt-10.jpg', '/images/products/men-shirts/men-shirt-12.jpg', '/images/products/men-shirts/men-shirt-13.jpg','/images/products/men-shirts/men-shirt-11.jpg'] },
-  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets', images: Array.from({ length: 27 }, (_, i) => `/images/products/bomber-jackets/bomber${i + 1}.JPG`) },
+  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets', images: Array.from({ length: 28 }, (_, i) => `/images/products/bomber-jackets/bomber${i + 1}.JPG`) },
   { id: 4, name: 'Ankara Kitenge Prints', slug: 'kitenge-prints', images: Array.from({ length: 31 }, (_, i) => `/images/products/kitenge-prints/ankaraprint${i + 1}.jpeg`) },
   { id: 5, name: 'Ankara Ladies Tops', slug: 'ladies-tops', images: ['/images/products/ladies-tops/top1.JPG', '/images/products/ladies-tops/top2.JPG', '/images/products/ladies-tops/top3.JPG', '/images/products/ladies-tops/top4.JPG', '/images/products/ladies-tops/top5.jpg', '/images/products/ladies-tops/top6.jpg', '/images/products/ladies-tops/top7.jpg', '/images/products/ladies-tops/top8.jpg', '/images/products/ladies-tops/top9.jpg', '/images/products/ladies-tops/top10.jpg', '/images/products/ladies-tops/top11.jpg', '/images/products/ladies-tops/top12.jpg', '/images/products/ladies-tops/top13.jpg', '/images/products/ladies-tops/top14.jpg', '/images/products/ladies-tops/top15.jpg', '/images/products/ladies-tops/top16.jpg', '/images/products/ladies-tops/top17.jpg', '/images/products/ladies-tops/top19.jpg'] },
   { id: 6, name: 'Ankara Maxi Dress', slug: 'maxi-dress', images: Array.from({ length: 17 }, (_, i) => `/images/products/maxi-dress/maxi${i + 1}.jpg`) },
@@ -43,7 +43,7 @@ const categories = [
   { id: 8, name: 'Ankara Patched Hoodies', slug: 'patched-hoodies', images: Array.from({ length: 4 }, (_, i) => `/images/products/patched-hoodies/hoodie${i + 1}.jpg`) },
   { id: 9, name: 'Ankara Patched Snoodies', slug: 'patched-snoodies', images: Array.from({ length: 14 }, (_, i) => `/images/products/patched-snoodies/snoody${i + 1}.jpg`) },
   { id: 10, name: 'Ankara Patched T-Shirts', slug: 'patched-tshirts', images: Array.from({ length: 4 }, (_, i) => `/images/products/patched-tshirts/ptshirt${i + 1}.jpg`) },
-  { id: 11, name: 'Ankara Skarters', slug: 'skarters', images: Array.from({ length: 5 }, (_, i) => `/images/products/skarters/skarter${i + 1}.jpg`) },
+  { id: 11, name: 'Ankara Skarters', slug: 'skarters', images: Array.from({ length: 6 }, (_, i) => `/images/products/skarters/skarter${i + 1}.jpg`) },
   { id: 12, name: 'Blazers', slug: 'blazers', images: Array.from({ length: 19 }, (_, i) => `/images/products/blazers/blazer${i + 1}.jpg`) },
   { id: 13, name: 'Bridesmaids Dresses', slug: 'bridesmaids', images: Array.from({ length: 7 }, (_, i) => `/images/products/bridesmaids/bridesmaid${i + 1}.jpg`) },
   { id: 14, name: 'Free Ankara Dresses', slug: 'free-ankara', images: Array.from({ length: 9 }, (_, i) => `/images/products/free-ankara/free${i + 1}.jpg`) },
