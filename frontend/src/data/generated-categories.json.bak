@@ -1,0 +1,1813 @@
+{
+  "sun-hats": {
+    "slug": "sun-hats",
+    "name": "Accessories - Sun Hats",
+    "price": 2500,
+    "images": [
+      {
+        "id": "sun-hats-1",
+        "title": "Accessories - Sun Hats 1",
+        "image": "/images/products/sun-hats/sun1.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 1"
+      },
+      {
+        "id": "sun-hats-2",
+        "title": "Accessories - Sun Hats 2",
+        "image": "/images/products/sun-hats/sun2.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 2"
+      },
+      {
+        "id": "sun-hats-3",
+        "title": "Accessories - Sun Hats 3",
+        "image": "/images/products/sun-hats/sun3.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 3"
+      },
+      {
+        "id": "sun-hats-4",
+        "title": "Accessories - Sun Hats 4",
+        "image": "/images/products/sun-hats/sun4.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 4"
+      },
+      {
+        "id": "sun-hats-5",
+        "title": "Accessories - Sun Hats 5",
+        "image": "/images/products/sun-hats/sun5.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 5"
+      },
+      {
+        "id": "sun-hats-6",
+        "title": "Accessories - Sun Hats 6",
+        "image": "/images/products/sun-hats/sun6.JPG",
+        "price": 2500,
+        "alt": "Accessories - Sun Hats 6"
+      }
+    ],
+    "count": 6
+  },
+  "men-shirts": {
+    "slug": "men-shirts",
+    "name": "African Men Shirts",
+    "price": 6500,
+    "images": [
+      {
+        "id": "men-shirts-1",
+        "title": "African Men Shirts 1",
+        "image": "/images/products/men-shirts/men-shirt-1.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 1"
+      },
+      {
+        "id": "men-shirts-2",
+        "title": "African Men Shirts 2",
+        "image": "/images/products/men-shirts/men-shirt-2.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 2"
+      },
+      {
+        "id": "men-shirts-3",
+        "title": "African Men Shirts 3",
+        "image": "/images/products/men-shirts/men-shirt-3.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 3"
+      },
+      {
+        "id": "men-shirts-4",
+        "title": "African Men Shirts 4",
+        "image": "/images/products/men-shirts/men-shirt-4.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 4"
+      },
+      {
+        "id": "men-shirts-5",
+        "title": "African Men Shirts 5",
+        "image": "/images/products/men-shirts/men-shirt-5.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 5"
+      },
+      {
+        "id": "men-shirts-6",
+        "title": "African Men Shirts 6",
+        "image": "/images/products/men-shirts/men-shirt-6.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 6"
+      },
+      {
+        "id": "men-shirts-7",
+        "title": "African Men Shirts 7",
+        "image": "/images/products/men-shirts/men-shirt-7.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 7"
+      },
+      {
+        "id": "men-shirts-8",
+        "title": "African Men Shirts 8",
+        "image": "/images/products/men-shirts/men-shirt-8.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 8"
+      },
+      {
+        "id": "men-shirts-9",
+        "title": "African Men Shirts 9",
+        "image": "/images/products/men-shirts/men-shirt-9.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 9"
+      },
+      {
+        "id": "men-shirts-10",
+        "title": "African Men Shirts 10",
+        "image": "/images/products/men-shirts/men-shirt-10.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 10"
+      },
+      {
+        "id": "men-shirts-11",
+        "title": "African Men Shirts 11",
+        "image": "/images/products/men-shirts/men-shirt-11.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 11"
+      },
+      {
+        "id": "men-shirts-12",
+        "title": "African Men Shirts 12",
+        "image": "/images/products/men-shirts/men-shirt-12.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 12"
+      },
+      {
+        "id": "men-shirts-13",
+        "title": "African Men Shirts 13",
+        "image": "/images/products/men-shirts/men-shirt-13.jpg",
+        "price": 6500,
+        "alt": "African Men Shirts 13"
+      }
+    ],
+    "count": 13
+  },
+  "bomber-jackets": {
+    "slug": "bomber-jackets",
+    "name": "Ankara Bomber Jackets",
+    "price": 11500,
+    "images": [
+      {
+        "id": "bomber-jackets-1",
+        "title": "Ankara Bomber Jackets 1",
+        "image": "/images/products/bomber-jackets/bomber1.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 1"
+      },
+      {
+        "id": "bomber-jackets-2",
+        "title": "Ankara Bomber Jackets 2",
+        "image": "/images/products/bomber-jackets/bomber2.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 2"
+      },
+      {
+        "id": "bomber-jackets-3",
+        "title": "Ankara Bomber Jackets 3",
+        "image": "/images/products/bomber-jackets/bomber3.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 3"
+      },
+      {
+        "id": "bomber-jackets-4",
+        "title": "Ankara Bomber Jackets 4",
+        "image": "/images/products/bomber-jackets/bomber4.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 4"
+      },
+      {
+        "id": "bomber-jackets-5",
+        "title": "Ankara Bomber Jackets 5",
+        "image": "/images/products/bomber-jackets/bomber5.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 5"
+      },
+      {
+        "id": "bomber-jackets-6",
+        "title": "Ankara Bomber Jackets 6",
+        "image": "/images/products/bomber-jackets/bomber6.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 6"
+      },
+      {
+        "id": "bomber-jackets-7",
+        "title": "Ankara Bomber Jackets 7",
+        "image": "/images/products/bomber-jackets/bomber7.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 7"
+      },
+      {
+        "id": "bomber-jackets-8",
+        "title": "Ankara Bomber Jackets 8",
+        "image": "/images/products/bomber-jackets/bomber8.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 8"
+      },
+      {
+        "id": "bomber-jackets-9",
+        "title": "Ankara Bomber Jackets 9",
+        "image": "/images/products/bomber-jackets/bomber9.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 9"
+      },
+      {
+        "id": "bomber-jackets-10",
+        "title": "Ankara Bomber Jackets 10",
+        "image": "/images/products/bomber-jackets/bomber10.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 10"
+      },
+      {
+        "id": "bomber-jackets-11",
+        "title": "Ankara Bomber Jackets 11",
+        "image": "/images/products/bomber-jackets/bomber11.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 11"
+      },
+      {
+        "id": "bomber-jackets-12",
+        "title": "Ankara Bomber Jackets 12",
+        "image": "/images/products/bomber-jackets/bomber12.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 12"
+      },
+      {
+        "id": "bomber-jackets-13",
+        "title": "Ankara Bomber Jackets 13",
+        "image": "/images/products/bomber-jackets/bomber13.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 13"
+      },
+      {
+        "id": "bomber-jackets-14",
+        "title": "Ankara Bomber Jackets 14",
+        "image": "/images/products/bomber-jackets/bomber14.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 14"
+      },
+      {
+        "id": "bomber-jackets-15",
+        "title": "Ankara Bomber Jackets 15",
+        "image": "/images/products/bomber-jackets/bomber15.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 15"
+      },
+      {
+        "id": "bomber-jackets-16",
+        "title": "Ankara Bomber Jackets 16",
+        "image": "/images/products/bomber-jackets/bomber16.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 16"
+      },
+      {
+        "id": "bomber-jackets-17",
+        "title": "Ankara Bomber Jackets 17",
+        "image": "/images/products/bomber-jackets/bomber17.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 17"
+      },
+      {
+        "id": "bomber-jackets-18",
+        "title": "Ankara Bomber Jackets 18",
+        "image": "/images/products/bomber-jackets/bomber18.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 18"
+      },
+      {
+        "id": "bomber-jackets-19",
+        "title": "Ankara Bomber Jackets 19",
+        "image": "/images/products/bomber-jackets/bomber19.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 19"
+      },
+      {
+        "id": "bomber-jackets-20",
+        "title": "Ankara Bomber Jackets 20",
+        "image": "/images/products/bomber-jackets/bomber20.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 20"
+      },
+      {
+        "id": "bomber-jackets-21",
+        "title": "Ankara Bomber Jackets 21",
+        "image": "/images/products/bomber-jackets/bomber21.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 21"
+      },
+      {
+        "id": "bomber-jackets-22",
+        "title": "Ankara Bomber Jackets 22",
+        "image": "/images/products/bomber-jackets/bomber22.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 22"
+      },
+      {
+        "id": "bomber-jackets-23",
+        "title": "Ankara Bomber Jackets 23",
+        "image": "/images/products/bomber-jackets/bomber23.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 23"
+      },
+      {
+        "id": "bomber-jackets-24",
+        "title": "Ankara Bomber Jackets 24",
+        "image": "/images/products/bomber-jackets/bomber24.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 24"
+      },
+      {
+        "id": "bomber-jackets-25",
+        "title": "Ankara Bomber Jackets 25",
+        "image": "/images/products/bomber-jackets/bomber25.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 25"
+      },
+      {
+        "id": "bomber-jackets-26",
+        "title": "Ankara Bomber Jackets 26",
+        "image": "/images/products/bomber-jackets/bomber26.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 26"
+      },
+      {
+        "id": "bomber-jackets-27",
+        "title": "Ankara Bomber Jackets 27",
+        "image": "/images/products/bomber-jackets/bomber27.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 27"
+      },
+      {
+        "id": "bomber-jackets-28",
+        "title": "Ankara Bomber Jackets 28",
+        "image": "/images/products/bomber-jackets/bomber28.jpg",
+        "price": 11500,
+        "alt": "Ankara Bomber Jackets 28"
+      }
+    ],
+    "count": 28
+  },
+  "kitenge-prints": {
+    "slug": "kitenge-prints",
+    "name": "Ankara Kitenge Prints",
+    "price": 3500,
+    "images": [
+      {
+        "id": "kitenge-prints-1",
+        "title": "Ankara Kitenge Prints 1",
+        "image": "/images/products/kitenge-prints/ankaraprint1.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 1"
+      },
+      {
+        "id": "kitenge-prints-2",
+        "title": "Ankara Kitenge Prints 2",
+        "image": "/images/products/kitenge-prints/ankaraprint2.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 2"
+      },
+      {
+        "id": "kitenge-prints-3",
+        "title": "Ankara Kitenge Prints 3",
+        "image": "/images/products/kitenge-prints/ankaraprint3.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 3"
+      },
+      {
+        "id": "kitenge-prints-4",
+        "title": "Ankara Kitenge Prints 4",
+        "image": "/images/products/kitenge-prints/ankaraprint4.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 4"
+      },
+      {
+        "id": "kitenge-prints-5",
+        "title": "Ankara Kitenge Prints 5",
+        "image": "/images/products/kitenge-prints/ankaraprint5.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 5"
+      },
+      {
+        "id": "kitenge-prints-6",
+        "title": "Ankara Kitenge Prints 6",
+        "image": "/images/products/kitenge-prints/ankaraprint6.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 6"
+      },
+      {
+        "id": "kitenge-prints-7",
+        "title": "Ankara Kitenge Prints 7",
+        "image": "/images/products/kitenge-prints/ankaraprint7.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 7"
+      },
+      {
+        "id": "kitenge-prints-8",
+        "title": "Ankara Kitenge Prints 8",
+        "image": "/images/products/kitenge-prints/ankaraprint8.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 8"
+      },
+      {
+        "id": "kitenge-prints-9",
+        "title": "Ankara Kitenge Prints 9",
+        "image": "/images/products/kitenge-prints/ankaraprint9.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 9"
+      },
+      {
+        "id": "kitenge-prints-10",
+        "title": "Ankara Kitenge Prints 10",
+        "image": "/images/products/kitenge-prints/ankaraprint10.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 10"
+      },
+      {
+        "id": "kitenge-prints-11",
+        "title": "Ankara Kitenge Prints 11",
+        "image": "/images/products/kitenge-prints/ankaraprint11.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 11"
+      },
+      {
+        "id": "kitenge-prints-12",
+        "title": "Ankara Kitenge Prints 12",
+        "image": "/images/products/kitenge-prints/ankaraprint12.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 12"
+      },
+      {
+        "id": "kitenge-prints-13",
+        "title": "Ankara Kitenge Prints 13",
+        "image": "/images/products/kitenge-prints/ankaraprint13.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 13"
+      },
+      {
+        "id": "kitenge-prints-14",
+        "title": "Ankara Kitenge Prints 14",
+        "image": "/images/products/kitenge-prints/ankaraprint14.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 14"
+      },
+      {
+        "id": "kitenge-prints-15",
+        "title": "Ankara Kitenge Prints 15",
+        "image": "/images/products/kitenge-prints/ankaraprint15.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 15"
+      },
+      {
+        "id": "kitenge-prints-16",
+        "title": "Ankara Kitenge Prints 16",
+        "image": "/images/products/kitenge-prints/ankaraprint16.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 16"
+      },
+      {
+        "id": "kitenge-prints-17",
+        "title": "Ankara Kitenge Prints 17",
+        "image": "/images/products/kitenge-prints/ankaraprint17.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 17"
+      },
+      {
+        "id": "kitenge-prints-18",
+        "title": "Ankara Kitenge Prints 18",
+        "image": "/images/products/kitenge-prints/ankaraprint18.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 18"
+      },
+      {
+        "id": "kitenge-prints-19",
+        "title": "Ankara Kitenge Prints 19",
+        "image": "/images/products/kitenge-prints/ankaraprint19.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 19"
+      },
+      {
+        "id": "kitenge-prints-20",
+        "title": "Ankara Kitenge Prints 20",
+        "image": "/images/products/kitenge-prints/ankaraprint20.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 20"
+      },
+      {
+        "id": "kitenge-prints-21",
+        "title": "Ankara Kitenge Prints 21",
+        "image": "/images/products/kitenge-prints/ankaraprint21.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 21"
+      },
+      {
+        "id": "kitenge-prints-22",
+        "title": "Ankara Kitenge Prints 22",
+        "image": "/images/products/kitenge-prints/ankaraprint22.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 22"
+      },
+      {
+        "id": "kitenge-prints-23",
+        "title": "Ankara Kitenge Prints 23",
+        "image": "/images/products/kitenge-prints/ankaraprint23.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 23"
+      },
+      {
+        "id": "kitenge-prints-24",
+        "title": "Ankara Kitenge Prints 24",
+        "image": "/images/products/kitenge-prints/ankaraprint24.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 24"
+      },
+      {
+        "id": "kitenge-prints-25",
+        "title": "Ankara Kitenge Prints 25",
+        "image": "/images/products/kitenge-prints/ankaraprint25.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 25"
+      },
+      {
+        "id": "kitenge-prints-26",
+        "title": "Ankara Kitenge Prints 26",
+        "image": "/images/products/kitenge-prints/ankaraprint26.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 26"
+      },
+      {
+        "id": "kitenge-prints-27",
+        "title": "Ankara Kitenge Prints 27",
+        "image": "/images/products/kitenge-prints/ankaraprint27.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 27"
+      },
+      {
+        "id": "kitenge-prints-28",
+        "title": "Ankara Kitenge Prints 28",
+        "image": "/images/products/kitenge-prints/ankaraprint28.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 28"
+      },
+      {
+        "id": "kitenge-prints-29",
+        "title": "Ankara Kitenge Prints 29",
+        "image": "/images/products/kitenge-prints/ankaraprint29.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 29"
+      },
+      {
+        "id": "kitenge-prints-30",
+        "title": "Ankara Kitenge Prints 30",
+        "image": "/images/products/kitenge-prints/ankaraprint30.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 30"
+      },
+      {
+        "id": "kitenge-prints-31",
+        "title": "Ankara Kitenge Prints 31",
+        "image": "/images/products/kitenge-prints/ankaraprint31.jpeg",
+        "price": 3500,
+        "alt": "Ankara Kitenge Prints 31"
+      }
+    ],
+    "count": 31
+  },
+  "ladies-tops": {
+    "slug": "ladies-tops",
+    "name": "Ankara Ladies Tops",
+    "price": 5500,
+    "images": [
+      {
+        "id": "ladies-tops-1",
+        "title": "Ankara Ladies Tops 1",
+        "image": "/images/products/ladies-tops/top1.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 1"
+      },
+      {
+        "id": "ladies-tops-2",
+        "title": "Ankara Ladies Tops 2",
+        "image": "/images/products/ladies-tops/top2.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 2"
+      },
+      {
+        "id": "ladies-tops-3",
+        "title": "Ankara Ladies Tops 3",
+        "image": "/images/products/ladies-tops/top3.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 3"
+      },
+      {
+        "id": "ladies-tops-4",
+        "title": "Ankara Ladies Tops 4",
+        "image": "/images/products/ladies-tops/top4.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 4"
+      },
+      {
+        "id": "ladies-tops-5",
+        "title": "Ankara Ladies Tops 5",
+        "image": "/images/products/ladies-tops/top5.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 5"
+      },
+      {
+        "id": "ladies-tops-6",
+        "title": "Ankara Ladies Tops 6",
+        "image": "/images/products/ladies-tops/top6.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 6"
+      },
+      {
+        "id": "ladies-tops-7",
+        "title": "Ankara Ladies Tops 7",
+        "image": "/images/products/ladies-tops/top7.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 7"
+      },
+      {
+        "id": "ladies-tops-8",
+        "title": "Ankara Ladies Tops 8",
+        "image": "/images/products/ladies-tops/top8.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 8"
+      },
+      {
+        "id": "ladies-tops-9",
+        "title": "Ankara Ladies Tops 9",
+        "image": "/images/products/ladies-tops/top9.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 9"
+      },
+      {
+        "id": "ladies-tops-10",
+        "title": "Ankara Ladies Tops 10",
+        "image": "/images/products/ladies-tops/top10.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 10"
+      },
+      {
+        "id": "ladies-tops-11",
+        "title": "Ankara Ladies Tops 11",
+        "image": "/images/products/ladies-tops/top11.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 11"
+      },
+      {
+        "id": "ladies-tops-12",
+        "title": "Ankara Ladies Tops 12",
+        "image": "/images/products/ladies-tops/top12.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 12"
+      },
+      {
+        "id": "ladies-tops-13",
+        "title": "Ankara Ladies Tops 13",
+        "image": "/images/products/ladies-tops/top13.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 13"
+      },
+      {
+        "id": "ladies-tops-14",
+        "title": "Ankara Ladies Tops 14",
+        "image": "/images/products/ladies-tops/top14.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 14"
+      },
+      {
+        "id": "ladies-tops-15",
+        "title": "Ankara Ladies Tops 15",
+        "image": "/images/products/ladies-tops/top15.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 15"
+      },
+      {
+        "id": "ladies-tops-16",
+        "title": "Ankara Ladies Tops 16",
+        "image": "/images/products/ladies-tops/top16.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 16"
+      },
+      {
+        "id": "ladies-tops-17",
+        "title": "Ankara Ladies Tops 17",
+        "image": "/images/products/ladies-tops/top17.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 17"
+      },
+      {
+        "id": "ladies-tops-18",
+        "title": "Ankara Ladies Tops 18",
+        "image": "/images/products/ladies-tops/top18.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 18"
+      },
+      {
+        "id": "ladies-tops-19",
+        "title": "Ankara Ladies Tops 19",
+        "image": "/images/products/ladies-tops/top19.jpg",
+        "price": 5500,
+        "alt": "Ankara Ladies Tops 19"
+      }
+    ],
+    "count": 19
+  },
+  "maxi-dress": {
+    "slug": "maxi-dress",
+    "name": "Ankara Maxi Dress",
+    "price": 8500,
+    "images": [
+      {
+        "id": "maxi-dress-1",
+        "title": "Ankara Maxi Dress 1",
+        "image": "/images/products/maxi-dress/maxi1.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 1"
+      },
+      {
+        "id": "maxi-dress-2",
+        "title": "Ankara Maxi Dress 2",
+        "image": "/images/products/maxi-dress/maxi2.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 2"
+      },
+      {
+        "id": "maxi-dress-3",
+        "title": "Ankara Maxi Dress 3",
+        "image": "/images/products/maxi-dress/maxi3.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 3"
+      },
+      {
+        "id": "maxi-dress-4",
+        "title": "Ankara Maxi Dress 4",
+        "image": "/images/products/maxi-dress/maxi4.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 4"
+      },
+      {
+        "id": "maxi-dress-5",
+        "title": "Ankara Maxi Dress 5",
+        "image": "/images/products/maxi-dress/maxi5.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 5"
+      },
+      {
+        "id": "maxi-dress-6",
+        "title": "Ankara Maxi Dress 6",
+        "image": "/images/products/maxi-dress/maxi6.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 6"
+      },
+      {
+        "id": "maxi-dress-7",
+        "title": "Ankara Maxi Dress 7",
+        "image": "/images/products/maxi-dress/maxi7.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 7"
+      },
+      {
+        "id": "maxi-dress-8",
+        "title": "Ankara Maxi Dress 8",
+        "image": "/images/products/maxi-dress/maxi8.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 8"
+      },
+      {
+        "id": "maxi-dress-9",
+        "title": "Ankara Maxi Dress 9",
+        "image": "/images/products/maxi-dress/maxi9.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 9"
+      },
+      {
+        "id": "maxi-dress-10",
+        "title": "Ankara Maxi Dress 10",
+        "image": "/images/products/maxi-dress/maxi10.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 10"
+      },
+      {
+        "id": "maxi-dress-11",
+        "title": "Ankara Maxi Dress 11",
+        "image": "/images/products/maxi-dress/maxi11.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 11"
+      },
+      {
+        "id": "maxi-dress-12",
+        "title": "Ankara Maxi Dress 12",
+        "image": "/images/products/maxi-dress/maxi12.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 12"
+      },
+      {
+        "id": "maxi-dress-13",
+        "title": "Ankara Maxi Dress 13",
+        "image": "/images/products/maxi-dress/maxi13.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 13"
+      },
+      {
+        "id": "maxi-dress-14",
+        "title": "Ankara Maxi Dress 14",
+        "image": "/images/products/maxi-dress/maxi14.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 14"
+      },
+      {
+        "id": "maxi-dress-15",
+        "title": "Ankara Maxi Dress 15",
+        "image": "/images/products/maxi-dress/maxi15.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 15"
+      },
+      {
+        "id": "maxi-dress-16",
+        "title": "Ankara Maxi Dress 16",
+        "image": "/images/products/maxi-dress/maxi16.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 16"
+      },
+      {
+        "id": "maxi-dress-17",
+        "title": "Ankara Maxi Dress 17",
+        "image": "/images/products/maxi-dress/maxi17.jpg",
+        "price": 8500,
+        "alt": "Ankara Maxi Dress 17"
+      }
+    ],
+    "count": 17
+  },
+  "patched-dresses": {
+    "slug": "patched-dresses",
+    "name": "Ankara Patched Dresses",
+    "price": 7500,
+    "images": [
+      {
+        "id": "patched-dresses-1",
+        "title": "Ankara Patched Dresses 1",
+        "image": "/images/products/patched-dresses/pdress1.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 1"
+      },
+      {
+        "id": "patched-dresses-2",
+        "title": "Ankara Patched Dresses 2",
+        "image": "/images/products/patched-dresses/pdress2.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 2"
+      },
+      {
+        "id": "patched-dresses-3",
+        "title": "Ankara Patched Dresses 3",
+        "image": "/images/products/patched-dresses/pdress3.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 3"
+      },
+      {
+        "id": "patched-dresses-4",
+        "title": "Ankara Patched Dresses 4",
+        "image": "/images/products/patched-dresses/pdress4.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 4"
+      },
+      {
+        "id": "patched-dresses-5",
+        "title": "Ankara Patched Dresses 5",
+        "image": "/images/products/patched-dresses/pdress5.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 5"
+      },
+      {
+        "id": "patched-dresses-6",
+        "title": "Ankara Patched Dresses 6",
+        "image": "/images/products/patched-dresses/pdress6.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 6"
+      },
+      {
+        "id": "patched-dresses-7",
+        "title": "Ankara Patched Dresses 7",
+        "image": "/images/products/patched-dresses/pdress7.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 7"
+      },
+      {
+        "id": "patched-dresses-8",
+        "title": "Ankara Patched Dresses 8",
+        "image": "/images/products/patched-dresses/pdress8.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 8"
+      },
+      {
+        "id": "patched-dresses-9",
+        "title": "Ankara Patched Dresses 9",
+        "image": "/images/products/patched-dresses/pdress9.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 9"
+      },
+      {
+        "id": "patched-dresses-10",
+        "title": "Ankara Patched Dresses 10",
+        "image": "/images/products/patched-dresses/pdress10.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 10"
+      },
+      {
+        "id": "patched-dresses-11",
+        "title": "Ankara Patched Dresses 11",
+        "image": "/images/products/patched-dresses/pdress11.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 11"
+      },
+      {
+        "id": "patched-dresses-12",
+        "title": "Ankara Patched Dresses 12",
+        "image": "/images/products/patched-dresses/pdress12.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 12"
+      },
+      {
+        "id": "patched-dresses-13",
+        "title": "Ankara Patched Dresses 13",
+        "image": "/images/products/patched-dresses/pdress13.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 13"
+      },
+      {
+        "id": "patched-dresses-14",
+        "title": "Ankara Patched Dresses 14",
+        "image": "/images/products/patched-dresses/pdress14.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 14"
+      },
+      {
+        "id": "patched-dresses-15",
+        "title": "Ankara Patched Dresses 15",
+        "image": "/images/products/patched-dresses/pdress15.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 15"
+      },
+      {
+        "id": "patched-dresses-16",
+        "title": "Ankara Patched Dresses 16",
+        "image": "/images/products/patched-dresses/pdress16.jpg",
+        "price": 7500,
+        "alt": "Ankara Patched Dresses 16"
+      }
+    ],
+    "count": 16
+  },
+  "patched-hoodies": {
+    "slug": "patched-hoodies",
+    "name": "Ankara Patched Hoodies",
+    "price": 6500,
+    "images": [
+      {
+        "id": "patched-hoodies-1",
+        "title": "Ankara Patched Hoodies 1",
+        "image": "/images/products/patched-hoodies/hoodie1.jpg",
+        "price": 6500,
+        "alt": "Ankara Patched Hoodies 1"
+      },
+      {
+        "id": "patched-hoodies-2",
+        "title": "Ankara Patched Hoodies 2",
+        "image": "/images/products/patched-hoodies/hoodie2.jpg",
+        "price": 6500,
+        "alt": "Ankara Patched Hoodies 2"
+      },
+      {
+        "id": "patched-hoodies-3",
+        "title": "Ankara Patched Hoodies 3",
+        "image": "/images/products/patched-hoodies/hoodie3.jpg",
+        "price": 6500,
+        "alt": "Ankara Patched Hoodies 3"
+      },
+      {
+        "id": "patched-hoodies-4",
+        "title": "Ankara Patched Hoodies 4",
+        "image": "/images/products/patched-hoodies/hoodie4.jpg",
+        "price": 6500,
+        "alt": "Ankara Patched Hoodies 4"
+      }
+    ],
+    "count": 4
+  },
+  "patched-snoodies": {
+    "slug": "patched-snoodies",
+    "name": "Ankara Patched Snoodies",
+    "price": 5500,
+    "images": [
+      {
+        "id": "patched-snoodies-1",
+        "title": "Ankara Patched Snoodies 1",
+        "image": "/images/products/patched-snoodies/snoody1.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 1"
+      },
+      {
+        "id": "patched-snoodies-2",
+        "title": "Ankara Patched Snoodies 2",
+        "image": "/images/products/patched-snoodies/snoody2.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 2"
+      },
+      {
+        "id": "patched-snoodies-3",
+        "title": "Ankara Patched Snoodies 3",
+        "image": "/images/products/patched-snoodies/snoody3.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 3"
+      },
+      {
+        "id": "patched-snoodies-4",
+        "title": "Ankara Patched Snoodies 4",
+        "image": "/images/products/patched-snoodies/snoody4.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 4"
+      },
+      {
+        "id": "patched-snoodies-5",
+        "title": "Ankara Patched Snoodies 5",
+        "image": "/images/products/patched-snoodies/snoody5.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 5"
+      },
+      {
+        "id": "patched-snoodies-6",
+        "title": "Ankara Patched Snoodies 6",
+        "image": "/images/products/patched-snoodies/snoody6.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 6"
+      },
+      {
+        "id": "patched-snoodies-7",
+        "title": "Ankara Patched Snoodies 7",
+        "image": "/images/products/patched-snoodies/snoody7.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 7"
+      },
+      {
+        "id": "patched-snoodies-8",
+        "title": "Ankara Patched Snoodies 8",
+        "image": "/images/products/patched-snoodies/snoody8.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 8"
+      },
+      {
+        "id": "patched-snoodies-9",
+        "title": "Ankara Patched Snoodies 9",
+        "image": "/images/products/patched-snoodies/snoody9.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 9"
+      },
+      {
+        "id": "patched-snoodies-10",
+        "title": "Ankara Patched Snoodies 10",
+        "image": "/images/products/patched-snoodies/snoody10.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 10"
+      },
+      {
+        "id": "patched-snoodies-11",
+        "title": "Ankara Patched Snoodies 11",
+        "image": "/images/products/patched-snoodies/snoody11.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 11"
+      },
+      {
+        "id": "patched-snoodies-12",
+        "title": "Ankara Patched Snoodies 12",
+        "image": "/images/products/patched-snoodies/snoody12.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 12"
+      },
+      {
+        "id": "patched-snoodies-13",
+        "title": "Ankara Patched Snoodies 13",
+        "image": "/images/products/patched-snoodies/snoody13.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 13"
+      },
+      {
+        "id": "patched-snoodies-14",
+        "title": "Ankara Patched Snoodies 14",
+        "image": "/images/products/patched-snoodies/snoody14.jpg",
+        "price": 5500,
+        "alt": "Ankara Patched Snoodies 14"
+      }
+    ],
+    "count": 14
+  },
+  "patched-tshirts": {
+    "slug": "patched-tshirts",
+    "name": "Ankara Patched T-Shirts",
+    "price": 4500,
+    "images": [
+      {
+        "id": "patched-tshirts-1",
+        "title": "Ankara Patched T-Shirts 1",
+        "image": "/images/products/patched-tshirts/ptshirt1.jpg",
+        "price": 4500,
+        "alt": "Ankara Patched T-Shirts 1"
+      },
+      {
+        "id": "patched-tshirts-2",
+        "title": "Ankara Patched T-Shirts 2",
+        "image": "/images/products/patched-tshirts/ptshirt2.jpg",
+        "price": 4500,
+        "alt": "Ankara Patched T-Shirts 2"
+      },
+      {
+        "id": "patched-tshirts-3",
+        "title": "Ankara Patched T-Shirts 3",
+        "image": "/images/products/patched-tshirts/ptshirt3.jpg",
+        "price": 4500,
+        "alt": "Ankara Patched T-Shirts 3"
+      },
+      {
+        "id": "patched-tshirts-4",
+        "title": "Ankara Patched T-Shirts 4",
+        "image": "/images/products/patched-tshirts/ptshirt4.jpg",
+        "price": 4500,
+        "alt": "Ankara Patched T-Shirts 4"
+      }
+    ],
+    "count": 4
+  },
+  "skarters": {
+    "slug": "skarters",
+    "name": "Ankara Skarters",
+    "price": 6000,
+    "images": [
+      {
+        "id": "skarters-1",
+        "title": "Ankara Skarters 1",
+        "image": "/images/products/skarters/skarter1.jpg",
+        "price": 6000,
+        "alt": "Ankara Skarters 1"
+      },
+      {
+        "id": "skarters-2",
+        "title": "Ankara Skarters 2",
+        "image": "/images/products/skarters/skarter2.jpg",
+        "price": 6000,
+        "alt": "Ankara Skarters 2"
+      },
+      {
+        "id": "skarters-3",
+        "title": "Ankara Skarters 3",
+        "image": "/images/products/skarters/skarter3.jpg",
+        "price": 6000,
+        "alt": "Ankara Skarters 3"
+      },
+      {
+        "id": "skarters-4",
+        "title": "Ankara Skarters 4",
+        "image": "/images/products/skarters/skarter4.jpg",
+        "price": 6000,
+        "alt": "Ankara Skarters 4"
+      },
+      {
+        "id": "skarters-5",
+        "title": "Ankara Skarters 5",
+        "image": "/images/products/skarters/skarter5.jpg",
+        "price": 6000,
+        "alt": "Ankara Skarters 5"
+      }
+    ],
+    "count": 5
+  },
+  "blazers": {
+    "slug": "blazers",
+    "name": "Blazers",
+    "price": 9500,
+    "images": [
+      {
+        "id": "blazers-1",
+        "title": "Blazers 1",
+        "image": "/images/products/blazers/blazer1.jpg",
+        "price": 9500,
+        "alt": "Blazers 1"
+      },
+      {
+        "id": "blazers-2",
+        "title": "Blazers 2",
+        "image": "/images/products/blazers/blazer2.jpg",
+        "price": 9500,
+        "alt": "Blazers 2"
+      },
+      {
+        "id": "blazers-3",
+        "title": "Blazers 3",
+        "image": "/images/products/blazers/blazer3.jpg",
+        "price": 9500,
+        "alt": "Blazers 3"
+      },
+      {
+        "id": "blazers-4",
+        "title": "Blazers 4",
+        "image": "/images/products/blazers/blazer4.jpg",
+        "price": 9500,
+        "alt": "Blazers 4"
+      },
+      {
+        "id": "blazers-5",
+        "title": "Blazers 5",
+        "image": "/images/products/blazers/blazer5.jpg",
+        "price": 9500,
+        "alt": "Blazers 5"
+      },
+      {
+        "id": "blazers-6",
+        "title": "Blazers 6",
+        "image": "/images/products/blazers/blazer6.jpg",
+        "price": 9500,
+        "alt": "Blazers 6"
+      },
+      {
+        "id": "blazers-7",
+        "title": "Blazers 7",
+        "image": "/images/products/blazers/blazer7.jpg",
+        "price": 9500,
+        "alt": "Blazers 7"
+      },
+      {
+        "id": "blazers-8",
+        "title": "Blazers 8",
+        "image": "/images/products/blazers/blazer8.jpg",
+        "price": 9500,
+        "alt": "Blazers 8"
+      },
+      {
+        "id": "blazers-9",
+        "title": "Blazers 9",
+        "image": "/images/products/blazers/blazer9.jpg",
+        "price": 9500,
+        "alt": "Blazers 9"
+      },
+      {
+        "id": "blazers-10",
+        "title": "Blazers 10",
+        "image": "/images/products/blazers/blazer10.jpg",
+        "price": 9500,
+        "alt": "Blazers 10"
+      },
+      {
+        "id": "blazers-11",
+        "title": "Blazers 11",
+        "image": "/images/products/blazers/blazer11.jpg",
+        "price": 9500,
+        "alt": "Blazers 11"
+      },
+      {
+        "id": "blazers-12",
+        "title": "Blazers 12",
+        "image": "/images/products/blazers/blazer12.jpg",
+        "price": 9500,
+        "alt": "Blazers 12"
+      },
+      {
+        "id": "blazers-13",
+        "title": "Blazers 13",
+        "image": "/images/products/blazers/blazer13.jpg",
+        "price": 9500,
+        "alt": "Blazers 13"
+      },
+      {
+        "id": "blazers-14",
+        "title": "Blazers 14",
+        "image": "/images/products/blazers/blazer14.jpg",
+        "price": 9500,
+        "alt": "Blazers 14"
+      },
+      {
+        "id": "blazers-15",
+        "title": "Blazers 15",
+        "image": "/images/products/blazers/blazer15.jpg",
+        "price": 9500,
+        "alt": "Blazers 15"
+      },
+      {
+        "id": "blazers-16",
+        "title": "Blazers 16",
+        "image": "/images/products/blazers/blazer16.jpg",
+        "price": 9500,
+        "alt": "Blazers 16"
+      },
+      {
+        "id": "blazers-17",
+        "title": "Blazers 17",
+        "image": "/images/products/blazers/blazer17.jpg",
+        "price": 9500,
+        "alt": "Blazers 17"
+      },
+      {
+        "id": "blazers-18",
+        "title": "Blazers 18",
+        "image": "/images/products/blazers/blazer18.jpg",
+        "price": 9500,
+        "alt": "Blazers 18"
+      },
+      {
+        "id": "blazers-19",
+        "title": "Blazers 19",
+        "image": "/images/products/blazers/blazer19.jpg",
+        "price": 9500,
+        "alt": "Blazers 19"
+      }
+    ],
+    "count": 19
+  },
+  "bridesmaids": {
+    "slug": "bridesmaids",
+    "name": "Bridesmaids Dresses",
+    "price": 10500,
+    "images": [
+      {
+        "id": "bridesmaids-1",
+        "title": "Bridesmaids Dresses 1",
+        "image": "/images/products/bridesmaids/bridesmaid1.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 1"
+      },
+      {
+        "id": "bridesmaids-2",
+        "title": "Bridesmaids Dresses 2",
+        "image": "/images/products/bridesmaids/bridesmaid2.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 2"
+      },
+      {
+        "id": "bridesmaids-3",
+        "title": "Bridesmaids Dresses 3",
+        "image": "/images/products/bridesmaids/bridesmaid3.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 3"
+      },
+      {
+        "id": "bridesmaids-4",
+        "title": "Bridesmaids Dresses 4",
+        "image": "/images/products/bridesmaids/bridesmaid4.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 4"
+      },
+      {
+        "id": "bridesmaids-5",
+        "title": "Bridesmaids Dresses 5",
+        "image": "/images/products/bridesmaids/bridesmaid5.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 5"
+      },
+      {
+        "id": "bridesmaids-6",
+        "title": "Bridesmaids Dresses 6",
+        "image": "/images/products/bridesmaids/bridesmaid6.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 6"
+      },
+      {
+        "id": "bridesmaids-7",
+        "title": "Bridesmaids Dresses 7",
+        "image": "/images/products/bridesmaids/bridesmaid7.jpg",
+        "price": 10500,
+        "alt": "Bridesmaids Dresses 7"
+      }
+    ],
+    "count": 7
+  },
+  "free-ankara": {
+    "slug": "free-ankara",
+    "name": "Free Ankara Dresses",
+    "price": 7000,
+    "images": [
+      {
+        "id": "free-ankara-1",
+        "title": "Free Ankara Dresses 1",
+        "image": "/images/products/free-ankara/free1.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 1"
+      },
+      {
+        "id": "free-ankara-2",
+        "title": "Free Ankara Dresses 2",
+        "image": "/images/products/free-ankara/free2.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 2"
+      },
+      {
+        "id": "free-ankara-3",
+        "title": "Free Ankara Dresses 3",
+        "image": "/images/products/free-ankara/free3.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 3"
+      },
+      {
+        "id": "free-ankara-4",
+        "title": "Free Ankara Dresses 4",
+        "image": "/images/products/free-ankara/free4.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 4"
+      },
+      {
+        "id": "free-ankara-5",
+        "title": "Free Ankara Dresses 5",
+        "image": "/images/products/free-ankara/free5.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 5"
+      },
+      {
+        "id": "free-ankara-6",
+        "title": "Free Ankara Dresses 6",
+        "image": "/images/products/free-ankara/free6.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 6"
+      },
+      {
+        "id": "free-ankara-7",
+        "title": "Free Ankara Dresses 7",
+        "image": "/images/products/free-ankara/free7.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 7"
+      },
+      {
+        "id": "free-ankara-8",
+        "title": "Free Ankara Dresses 8",
+        "image": "/images/products/free-ankara/free8.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 8"
+      },
+      {
+        "id": "free-ankara-9",
+        "title": "Free Ankara Dresses 9",
+        "image": "/images/products/free-ankara/free9.jpg",
+        "price": 7000,
+        "alt": "Free Ankara Dresses 9"
+      }
+    ],
+    "count": 9
+  },
+  "his-hers": {
+    "slug": "his-hers",
+    "name": "His and Hers",
+    "price": 15000,
+    "images": [
+      {
+        "id": "his-hers-1",
+        "title": "His and Hers 1",
+        "image": "/images/products/his-hers/hh1.jpg",
+        "price": 15000,
+        "alt": "His and Hers 1"
+      },
+      {
+        "id": "his-hers-2",
+        "title": "His and Hers 2",
+        "image": "/images/products/his-hers/hh2.jpg",
+        "price": 15000,
+        "alt": "His and Hers 2"
+      },
+      {
+        "id": "his-hers-3",
+        "title": "His and Hers 3",
+        "image": "/images/products/his-hers/hh3.jpg",
+        "price": 15000,
+        "alt": "His and Hers 3"
+      },
+      {
+        "id": "his-hers-4",
+        "title": "His and Hers 4",
+        "image": "/images/products/his-hers/hh4.jpg",
+        "price": 15000,
+        "alt": "His and Hers 4"
+      }
+    ],
+    "count": 4
+  },
+  "top-skirt": {
+    "slug": "top-skirt",
+    "name": "Ladies Top and Skirt",
+    "price": 7500,
+    "images": [
+      {
+        "id": "top-skirt-1",
+        "title": "Ladies Top and Skirt 1",
+        "image": "/images/products/top-skirt/topskirt1.jpg",
+        "price": 7500,
+        "alt": "Ladies Top and Skirt 1"
+      },
+      {
+        "id": "top-skirt-2",
+        "title": "Ladies Top and Skirt 2",
+        "image": "/images/products/top-skirt/topskirt2.jpg",
+        "price": 7500,
+        "alt": "Ladies Top and Skirt 2"
+      },
+      {
+        "id": "top-skirt-3",
+        "title": "Ladies Top and Skirt 3",
+        "image": "/images/products/top-skirt/topskirt3.jpg",
+        "price": 7500,
+        "alt": "Ladies Top and Skirt 3"
+      },
+      {
+        "id": "top-skirt-4",
+        "title": "Ladies Top and Skirt 4",
+        "image": "/images/products/top-skirt/topskirt4.jpg",
+        "price": 7500,
+        "alt": "Ladies Top and Skirt 4"
+      }
+    ],
+    "count": 4
+  },
+  "senator-suits": {
+    "slug": "senator-suits",
+    "name": "Men Senator Suits",
+    "price": 12000,
+    "images": [
+      {
+        "id": "senator-suits-1",
+        "title": "Men Senator Suits 1",
+        "image": "/images/products/senator-suits/senator1.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 1"
+      },
+      {
+        "id": "senator-suits-2",
+        "title": "Men Senator Suits 2",
+        "image": "/images/products/senator-suits/senator2.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 2"
+      },
+      {
+        "id": "senator-suits-3",
+        "title": "Men Senator Suits 3",
+        "image": "/images/products/senator-suits/senator3.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 3"
+      },
+      {
+        "id": "senator-suits-4",
+        "title": "Men Senator Suits 4",
+        "image": "/images/products/senator-suits/senator4.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 4"
+      },
+      {
+        "id": "senator-suits-5",
+        "title": "Men Senator Suits 5",
+        "image": "/images/products/senator-suits/senator5.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 5"
+      },
+      {
+        "id": "senator-suits-6",
+        "title": "Men Senator Suits 6",
+        "image": "/images/products/senator-suits/senator6.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 6"
+      },
+      {
+        "id": "senator-suits-7",
+        "title": "Men Senator Suits 7",
+        "image": "/images/products/senator-suits/senator7.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 7"
+      },
+      {
+        "id": "senator-suits-8",
+        "title": "Men Senator Suits 8",
+        "image": "/images/products/senator-suits/senator8.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 8"
+      },
+      {
+        "id": "senator-suits-9",
+        "title": "Men Senator Suits 9",
+        "image": "/images/products/senator-suits/senator9.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 9"
+      },
+      {
+        "id": "senator-suits-10",
+        "title": "Men Senator Suits 10",
+        "image": "/images/products/senator-suits/senator10.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 10"
+      },
+      {
+        "id": "senator-suits-11",
+        "title": "Men Senator Suits 11",
+        "image": "/images/products/senator-suits/senator11.jpg",
+        "price": 12000,
+        "alt": "Men Senator Suits 11"
+      }
+    ],
+    "count": 11
+  },
+  "smookie": {
+    "slug": "smookie",
+    "name": "Smookie Thread Dress",
+    "price": 8000,
+    "images": [
+      {
+        "id": "smookie-1",
+        "title": "Smookie Thread Dress 1",
+        "image": "/images/products/smookie/smookie1.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 1"
+      },
+      {
+        "id": "smookie-2",
+        "title": "Smookie Thread Dress 2",
+        "image": "/images/products/smookie/smookie2.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 2"
+      },
+      {
+        "id": "smookie-3",
+        "title": "Smookie Thread Dress 3",
+        "image": "/images/products/smookie/smookie3.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 3"
+      },
+      {
+        "id": "smookie-4",
+        "title": "Smookie Thread Dress 4",
+        "image": "/images/products/smookie/smookie4.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 4"
+      },
+      {
+        "id": "smookie-5",
+        "title": "Smookie Thread Dress 5",
+        "image": "/images/products/smookie/smookie5.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 5"
+      },
+      {
+        "id": "smookie-6",
+        "title": "Smookie Thread Dress 6",
+        "image": "/images/products/smookie/smookie6.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 6"
+      },
+      {
+        "id": "smookie-7",
+        "title": "Smookie Thread Dress 7",
+        "image": "/images/products/smookie/smookie7.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 7"
+      },
+      {
+        "id": "smookie-8",
+        "title": "Smookie Thread Dress 8",
+        "image": "/images/products/smookie/smookie8.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 8"
+      },
+      {
+        "id": "smookie-9",
+        "title": "Smookie Thread Dress 9",
+        "image": "/images/products/smookie/smookie9.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 9"
+      },
+      {
+        "id": "smookie-10",
+        "title": "Smookie Thread Dress 10",
+        "image": "/images/products/smookie/smookie10.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 10"
+      },
+      {
+        "id": "smookie-11",
+        "title": "Smookie Thread Dress 11",
+        "image": "/images/products/smookie/smookie11.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 11"
+      },
+      {
+        "id": "smookie-12",
+        "title": "Smookie Thread Dress 12",
+        "image": "/images/products/smookie/smookie12.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 12"
+      },
+      {
+        "id": "smookie-13",
+        "title": "Smookie Thread Dress 13",
+        "image": "/images/products/smookie/smookie13.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 13"
+      },
+      {
+        "id": "smookie-14",
+        "title": "Smookie Thread Dress 14",
+        "image": "/images/products/smookie/smookie14.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 14"
+      },
+      {
+        "id": "smookie-15",
+        "title": "Smookie Thread Dress 15",
+        "image": "/images/products/smookie/smookie15.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 15"
+      },
+      {
+        "id": "smookie-16",
+        "title": "Smookie Thread Dress 16",
+        "image": "/images/products/smookie/smookie16.jpg",
+        "price": 8000,
+        "alt": "Smookie Thread Dress 16"
+      }
+    ],
+    "count": 16
+  },
+  "traditional-wedding": {
+    "slug": "traditional-wedding",
+    "name": "Traditional Wedding Dresses",
+    "price": 18000,
+    "images": [
+      {
+        "id": "traditional-wedding-1",
+        "title": "Traditional Wedding Dresses 1",
+        "image": "/images/products/traditional-wedding/wedding1.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 1"
+      },
+      {
+        "id": "traditional-wedding-2",
+        "title": "Traditional Wedding Dresses 2",
+        "image": "/images/products/traditional-wedding/wedding2.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 2"
+      },
+      {
+        "id": "traditional-wedding-3",
+        "title": "Traditional Wedding Dresses 3",
+        "image": "/images/products/traditional-wedding/wedding3.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 3"
+      },
+      {
+        "id": "traditional-wedding-4",
+        "title": "Traditional Wedding Dresses 4",
+        "image": "/images/products/traditional-wedding/wedding4.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 4"
+      },
+      {
+        "id": "traditional-wedding-5",
+        "title": "Traditional Wedding Dresses 5",
+        "image": "/images/products/traditional-wedding/wedding5.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 5"
+      },
+      {
+        "id": "traditional-wedding-6",
+        "title": "Traditional Wedding Dresses 6",
+        "image": "/images/products/traditional-wedding/wedding6.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 6"
+      },
+      {
+        "id": "traditional-wedding-7",
+        "title": "Traditional Wedding Dresses 7",
+        "image": "/images/products/traditional-wedding/wedding7.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 7"
+      },
+      {
+        "id": "traditional-wedding-8",
+        "title": "Traditional Wedding Dresses 8",
+        "image": "/images/products/traditional-wedding/wedding8.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 8"
+      },
+      {
+        "id": "traditional-wedding-9",
+        "title": "Traditional Wedding Dresses 9",
+        "image": "/images/products/traditional-wedding/wedding9.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 9"
+      },
+      {
+        "id": "traditional-wedding-10",
+        "title": "Traditional Wedding Dresses 10",
+        "image": "/images/products/traditional-wedding/wedding10.jpg",
+        "price": 18000,
+        "alt": "Traditional Wedding Dresses 10"
+      }
+    ],
+    "count": 10
+  }
+}

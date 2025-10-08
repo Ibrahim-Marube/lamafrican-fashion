@@ -67,6 +67,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
   useEffect(() => {
     if (category.images.length <= 1) return;
+
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -74,6 +75,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
         setIsTransitioning(false);
       }, 300);
     }, 2000);
+
     return () => clearInterval(interval);
   }, [category.images.length]);
 
@@ -85,11 +87,10 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
       className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95"
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      {/* Portrait-optimized 3:4 aspect ratio for fashion photos */}
-      <div className="relative aspect-[3/4] bg-gray-100 overflow-hidden">
+      <div className="relative h-56 sm:h-64 md:h-72 bg-gray-100 overflow-hidden">
         <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
-            src={category.images?.[currentImageIndex] || '/images/placeholder-category.jpg'}
+            src={category.images[currentImageIndex]}
             alt={category.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -120,7 +121,6 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
   return (
     <Link href={`/products/${product.id}`} className="group">
-      {/* Portrait-optimized 3:4 aspect ratio */}
       <div className="relative aspect-[3/4] bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4">
         <Image
           src={product.image}
@@ -161,7 +161,8 @@ export default function Home() {
     <main className="bg-white">
       <HeroSlider />
 
-      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-6 bg-gray-50 fade-in">
+      {/* Shop by Categories - Off-white Background */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gray-50 fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">Shop by Category</h2>
@@ -187,6 +188,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trending Now */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
@@ -206,7 +208,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-12 pb-24 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
+      {/* Featured For You */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
