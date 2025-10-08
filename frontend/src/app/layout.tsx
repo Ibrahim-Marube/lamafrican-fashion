@@ -1,3 +1,8 @@
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 import Navbar from '@/components/Navbar';
 import type { Metadata } from 'next';
 import './globals.css';
