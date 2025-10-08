@@ -84,33 +84,34 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
   return (
     <Link
       href={`/categories/${category.slug}`}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
+      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95"
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      <div className="relative h-72 bg-gray-100 overflow-hidden">
+      <div className="relative h-56 sm:h-64 md:h-72 bg-gray-100 overflow-hidden">
         <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
             src={category.images[currentImageIndex]}
             alt={category.name}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-700"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            priority={index < 4}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         {category.images.length > 1 && (
-          <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
+          <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-xs font-medium">
             {currentImageIndex + 1} / {category.images.length}
           </div>
         )}
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#2C5326] transition-colors">
+      <div className="p-4 sm:p-5 md:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#2C5326] transition-colors leading-tight">
           {category.name}
         </h3>
-        <p className="text-sm text-gray-500 mb-4">{category.count} Items</p>
-        <div className="flex items-center text-[#2C5326] font-medium group-hover:gap-3 transition-all">
-          View Collection <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+        <p className="text-sm text-gray-500 mb-3 sm:mb-4">{category.count} Items</p>
+        <div className="flex items-center text-[#2C5326] font-medium group-hover:gap-3 transition-all text-sm sm:text-base">
+          View Collection <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </Link>
@@ -120,16 +121,16 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
   return (
     <Link href={`/products/${product.id}`} className="group">
-      <div className="relative aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden mb-4">
+      <div className="relative aspect-[3/4] bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4">
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 50vw, 25vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
         />
-        <div className="absolute top-3 right-3">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm flex items-center gap-1 ${
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
+          <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm flex items-center gap-1 ${
             product.badge === 'Trending' ? 'bg-orange-500/90 text-white' : 'bg-blue-500/90 text-white'
           }`}>
             {product.badge === 'Trending' ? <><TrendingUp className="w-3 h-3" /> Trending</> : <><Star className="w-3 h-3" /> Featured</>}
@@ -138,8 +139,8 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
       </div>
       <div className="space-y-1">
         <p className="text-xs font-semibold text-[#2C5326] uppercase tracking-wider">{product.category}</p>
-        <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#2C5326] transition-colors line-clamp-2">{product.name}</h3>
-        <p className="text-lg font-bold text-gray-900">KSh {product.price.toLocaleString()}</p>
+        <h3 className="text-sm sm:text-base font-semibold text-gray-900 group-hover:text-[#2C5326] transition-colors line-clamp-2 leading-tight">{product.name}</h3>
+        <p className="text-base sm:text-lg font-bold text-gray-900">KSh {product.price.toLocaleString()}</p>
       </div>
     </Link>
   );
@@ -160,25 +161,26 @@ export default function Home() {
     <main className="bg-white">
       <HeroSlider />
 
-      <section className="py-20 px-6 fade-in">
+      {/* Shop by Categories - Off-white Background */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gray-50 fade-in">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Shop by Category</h2>
-            <p className="text-lg text-gray-600 mb-8">Explore our curated collections of African fashion</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">Shop by Category</h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">Explore our curated collections of African fashion</p>
             
-            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-6xl mx-auto mb-8 sm:mb-12">
               {categories.filter(cat => cat.count > 0).map((cat) => (
                 <Link
                   key={cat.id}
                   href={`/categories/${cat.slug}`}
-                  className="px-5 py-2.5 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#2C5326] hover:text-[#2C5326] hover:bg-[#2C5326]/5 transition-all"
+                  className="px-3 sm:px-5 py-2 sm:py-2.5 bg-white border-2 border-gray-200 rounded-full text-xs sm:text-sm font-semibold text-gray-700 hover:border-[#2C5326] hover:text-[#2C5326] hover:bg-[#2C5326]/5 transition-all active:scale-95"
                 >
                   {cat.name}
                 </Link>
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {categories.map((category, idx) => (
               <CategoryCard key={category.id} category={category} index={idx} />
             ))}
@@ -186,18 +188,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
+      {/* Trending Now */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <TrendingUp className="w-8 h-8 text-orange-500" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
+              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
               Trending Now
             </h2>
-            <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-              View All <ArrowRight className="w-5 h-5" />
+            <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all active:scale-95 text-sm sm:text-base">
+              View All <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6">
             {trendingProducts.slice(0, 5).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -205,18 +208,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
+      {/* Featured For You */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <Star className="w-8 h-8 text-blue-500" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
+              <Star className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
               Featured For You
             </h2>
-            <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-              View All <ArrowRight className="w-5 h-5" />
+            <Link href="/products" className="text-[#2C5326] font-semibold flex items-center gap-2 hover:gap-3 transition-all active:scale-95 text-sm sm:text-base">
+              View All <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6">
             {featuredProducts.slice(0, 5).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -27,7 +27,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
 
   if (!category) {
     return (
-      <main className="min-h-screen pt-28 pb-16 px-6 bg-white">
+      <main className="min-h-screen pt-8 pb-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Category Not Found</h1>
           <Link href="/" className="text-[#2C5326] font-semibold hover:underline">Return Home</Link>
@@ -55,7 +55,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
   };
 
   return (
-    <main className="min-h-screen pt-28 pb-16 px-6 bg-white">
+    <main className="min-h-screen pt-8 pb-16 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <Link href="/" className="inline-flex items-center gap-2 text-[#2C5326] font-semibold hover:gap-3 transition-all mb-8">
           <ArrowLeft className="w-5 h-5" />
@@ -95,7 +95,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
 
             {category.images.length > 1 && (
               <div className="relative">
-                {category.images.length > 6 && (
+                {category.images.length > 1 && (
                   <button
                     onClick={() => scrollThumbnails('left')}
                     className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 transition-all"
@@ -120,7 +120,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                     </button>
                   ))}
                 </div>
-                {category.images.length > 6 && (
+                {category.images.length > 1 && (
                   <button
                     onClick={() => scrollThumbnails('right')}
                     className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 transition-all"

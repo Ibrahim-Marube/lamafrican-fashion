@@ -3,7 +3,7 @@ import { CONTACT_INFO } from '@/lib/constants';
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-white min-h-screen pt-28 pb-16 px-6">
+    <main className="bg-white min-h-screen pt-8 pb-16 px-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
         <p className="text-gray-600 mb-8">Last Updated: October 6, 2025</p>

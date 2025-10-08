@@ -81,7 +81,7 @@ export default function ProductsPage() {
   const displayProducts = activeTab === 'all' ? allProducts : activeTab === 'trending' ? trendingProducts : featuredProducts;
 
   return (
-    <main className="bg-white min-h-screen pt-28 pb-16 px-6">
+    <main className="bg-white min-h-screen pt-8 pb-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
