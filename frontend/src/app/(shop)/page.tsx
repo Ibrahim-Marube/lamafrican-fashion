@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, TrendingUp, Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import generatedCategoriesData from '@/data/generated-categories.json';
 
 const allProducts = [
   { id: 1, name: 'Ankara Maxi Dress - Royal Blue', price: 8500, image: '/images/products/maxi-dress/maxi1.jpg', category: 'Maxi Dress', badge: 'Trending' },
@@ -32,27 +33,33 @@ const allProducts = [
 const trendingProducts = allProducts.filter(p => p.badge === 'Trending');
 const featuredProducts = allProducts.filter(p => p.badge === 'Featured');
 
+const generatedCategories: any = generatedCategoriesData;
+
 const categories = [
-  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats', images: Array.from({ length: 6 }, (_, i) => `/images/products/sun-hats/sun${i + 1}.JPG`) },
-  { id: 2, name: 'African Men Shirts', slug: 'men-shirts', images: ['/images/products/men-shirts/men-shirt-1.jpg', '/images/products/men-shirts/men-shirt-2.jpg', '/images/products/men-shirts/men-shirt-3.jpg', '/images/products/men-shirts/men-shirt-4.jpg', '/images/products/men-shirts/men-shirt-5.jpg', '/images/products/men-shirts/men-shirt-6.jpg', '/images/products/men-shirts/men-shirt-7.jpg', '/images/products/men-shirts/men-shirt-8.jpg', '/images/products/men-shirts/men-shirt-9.jpg', '/images/products/men-shirts/men-shirt-10.jpg', '/images/products/men-shirts/men-shirt-12.jpg', '/images/products/men-shirts/men-shirt-13.jpg','/images/products/men-shirts/men-shirt-11.jpg'] },
-  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets', images: Array.from({ length: 28 }, (_, i) => `/images/products/bomber-jackets/bomber${i + 1}.JPG`) },
-  { id: 4, name: 'Ankara Kitenge Prints', slug: 'kitenge-prints', images: Array.from({ length: 31 }, (_, i) => `/images/products/kitenge-prints/ankaraprint${i + 1}.jpeg`) },
-  { id: 5, name: 'Ankara Ladies Tops', slug: 'ladies-tops', images: ['/images/products/ladies-tops/top1.JPG', '/images/products/ladies-tops/top2.JPG', '/images/products/ladies-tops/top3.JPG', '/images/products/ladies-tops/top4.JPG', '/images/products/ladies-tops/top5.jpg', '/images/products/ladies-tops/top6.jpg', '/images/products/ladies-tops/top7.jpg', '/images/products/ladies-tops/top8.jpg', '/images/products/ladies-tops/top9.jpg', '/images/products/ladies-tops/top10.jpg', '/images/products/ladies-tops/top11.jpg', '/images/products/ladies-tops/top12.jpg', '/images/products/ladies-tops/top13.jpg', '/images/products/ladies-tops/top14.jpg', '/images/products/ladies-tops/top15.jpg', '/images/products/ladies-tops/top16.jpg', '/images/products/ladies-tops/top17.jpg', '/images/products/ladies-tops/top19.jpg'] },
-  { id: 6, name: 'Ankara Maxi Dress', slug: 'maxi-dress', images: Array.from({ length: 17 }, (_, i) => `/images/products/maxi-dress/maxi${i + 1}.jpg`) },
-  { id: 7, name: 'Ankara Patched Dresses', slug: 'patched-dresses', images: Array.from({ length: 16 }, (_, i) => `/images/products/patched-dresses/pdress${i + 1}.jpg`) },
-  { id: 8, name: 'Ankara Patched Hoodies', slug: 'patched-hoodies', images: Array.from({ length: 4 }, (_, i) => `/images/products/patched-hoodies/hoodie${i + 1}.jpg`) },
-  { id: 9, name: 'Ankara Patched Snoodies', slug: 'patched-snoodies', images: Array.from({ length: 14 }, (_, i) => `/images/products/patched-snoodies/snoody${i + 1}.jpg`) },
-  { id: 10, name: 'Ankara Patched T-Shirts', slug: 'patched-tshirts', images: Array.from({ length: 4 }, (_, i) => `/images/products/patched-tshirts/ptshirt${i + 1}.jpg`) },
-  { id: 11, name: 'Ankara Skarters', slug: 'skarters', images: Array.from({ length: 6 }, (_, i) => `/images/products/skarters/skarter${i + 1}.jpg`) },
-  { id: 12, name: 'Blazers', slug: 'blazers', images: Array.from({ length: 19 }, (_, i) => `/images/products/blazers/blazer${i + 1}.jpg`) },
-  { id: 13, name: 'Bridesmaids Dresses', slug: 'bridesmaids', images: Array.from({ length: 7 }, (_, i) => `/images/products/bridesmaids/bridesmaid${i + 1}.jpg`) },
-  { id: 14, name: 'Free Ankara Dresses', slug: 'free-ankara', images: Array.from({ length: 9 }, (_, i) => `/images/products/free-ankara/free${i + 1}.jpg`) },
-  { id: 15, name: 'His and Hers', slug: 'his-hers', images: Array.from({ length: 4 }, (_, i) => `/images/products/his-hers/hh${i + 1}.jpg`) },
-  { id: 16, name: 'Ladies Top and Skirt', slug: 'top-skirt', images: Array.from({ length: 4 }, (_, i) => `/images/products/top-skirt/topskirt${i + 1}.jpg`) },
-  { id: 17, name: 'Men Senator Suits', slug: 'senator-suits', images: Array.from({ length: 11 }, (_, i) => `/images/products/senator-suits/senator${i + 1}.jpg`) },
-  { id: 18, name: 'Smookie Thread Dress', slug: 'smookie', images: Array.from({ length: 16 }, (_, i) => `/images/products/smookie/smookie${i + 1}.jpg`) },
-  { id: 19, name: 'Traditional Wedding Dresses', slug: 'traditional-wedding', images: Array.from({ length: 10 }, (_, i) => `/images/products/traditional-wedding/wedding${i + 1}.jpg`) },
-];
+  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats' },
+  { id: 2, name: 'African Men Shirts', slug: 'men-shirts' },
+  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets' },
+  { id: 4, name: 'Ankara Kitenge Prints', slug: 'kitenge-prints' },
+  { id: 5, name: 'Ankara Ladies Tops', slug: 'ladies-tops' },
+  { id: 6, name: 'Ankara Maxi Dress', slug: 'maxi-dress' },
+  { id: 7, name: 'Ankara Patched Dresses', slug: 'patched-dresses' },
+  { id: 8, name: 'Ankara Patched Hoodies', slug: 'patched-hoodies' },
+  { id: 9, name: 'Ankara Patched Snoodies', slug: 'patched-snoodies' },
+  { id: 10, name: 'Ankara Patched T-Shirts', slug: 'patched-tshirts' },
+  { id: 11, name: 'Ankara Skarters', slug: 'skarters' },
+  { id: 12, name: 'Blazers', slug: 'blazers' },
+  { id: 13, name: 'Bridesmaids Dresses', slug: 'bridesmaids' },
+  { id: 14, name: 'Free Ankara Dresses', slug: 'free-ankara' },
+  { id: 15, name: 'His and Hers', slug: 'his-hers' },
+  { id: 16, name: 'Ladies Top and Skirt', slug: 'top-skirt' },
+  { id: 17, name: 'Men Senator Suits', slug: 'senator-suits' },
+  { id: 18, name: 'Smookie Thread Dress', slug: 'smookie' },
+  { id: 19, name: 'Traditional Wedding Dresses', slug: 'traditional-wedding' },
+].map(cat => ({
+  ...cat,
+  images: generatedCategories[cat.slug]?.images?.map((img: any) => img.image) || [],
+  count: generatedCategories[cat.slug]?.count || 0
+}));
 
 function CategoryCard({ category, index }: { category: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -71,6 +78,8 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
     return () => clearInterval(interval);
   }, [category.images.length]);
+
+  if (category.count === 0) return null;
 
   return (
     <Link
@@ -99,7 +108,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
         <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#2C5326] transition-colors">
           {category.name}
         </h3>
-        <p className="text-sm text-gray-500 mb-4">{category.images.length}+ Items</p>
+        <p className="text-sm text-gray-500 mb-4">{category.count} Items</p>
         <div className="flex items-center text-[#2C5326] font-medium group-hover:gap-3 transition-all">
           View Collection <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
@@ -158,7 +167,7 @@ export default function Home() {
             <p className="text-lg text-gray-600 mb-8">Explore our curated collections of African fashion</p>
             
             <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-12">
-              {categories.map((cat) => (
+              {categories.filter(cat => cat.count > 0).map((cat) => (
                 <Link
                   key={cat.id}
                   href={`/categories/${cat.slug}`}
