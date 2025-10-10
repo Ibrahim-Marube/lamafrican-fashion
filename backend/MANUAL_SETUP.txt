@@ -1,0 +1,25 @@
+Add these imports at the top of your main server file (src/server.ts or src/index.ts):
+
+import './models/Category';
+import './models/Order';
+import './models/CustomOrder';
+import './models/Customer';
+import './models/Inquiry';
+import './models/Media';
+import categoryRoutes from './routes/categories';
+import orderRoutes from './routes/orders';
+import customOrderRoutes from './routes/customOrders';
+import customerRoutes from './routes/customers';
+import inquiryRoutes from './routes/inquiries';
+import mediaRoutes from './routes/media';
+
+Add these route mounts after your Express app is created:
+
+app.use('/api/categories', categoryRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/custom-orders', customOrderRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/inquiries', inquiryRoutes);
+app.use('/api/media', mediaRoutes);
+
+Then restart backend: npm run dev

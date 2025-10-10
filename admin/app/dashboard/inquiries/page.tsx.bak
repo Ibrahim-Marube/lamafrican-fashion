@@ -1,0 +1,323 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Eye, Search, Mail, CheckCircle } from 'lucide-react';
+import { contactsAPI } from '@/lib/api';
+import { format } from 'date-fns';
+
+interface Inquiry {
+  _id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  subject?: string;
+  message: string;
+  status: 'unread' | 'read' | 'responded';
+  response?: string;
+  createdAt: string;
+}
+
+export default function InquiriesPage() {
+  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [selectedInquiry, setSelectedInquiry] = useState<Inquiry | null>(null);
+  const [response, setResponse] = useState('');
+  const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    fetchInquiries();
+  }, []);
+
+  const fetchInquiries = async () => {
+    try {
+      const res = await contactsAPI.getAll();
+      setInquiries(res.data);
+    } catch (error) {
+      console.error('Failed to fetch inquiries:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRespond = async () => {
+    if (!selectedInquiry || !response.trim()) {
+      alert('Please enter a response');
+      return;
+    }
+
+    setSending(true);
+    try {
+      await contactsAPI.respond(selectedInquiry._id, response);
+      setInquiries(inquiries.map(inq => 
+        inq._id === selectedInquiry._id 
+          ? { ...inq, status: 'responded', response } 
+          : inq
+      ));
+      alert('Response sent successfully!');
+      setSelectedInquiry(null);
+      setResponse('');
+    } catch (error) {
+      console.error('Failed to send response:', error);
+      alert('Failed to send response');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const markAsRead = async (id: string) => {
+    try {
+      await contactsAPI.respond(id, '');
+      setInquiries(inquiries.map(inq => 
+        inq._id === id ? { ...inq, status: 'read' } : inq
+      ));
+    } catch (error) {
+      console.error('Failed to mark as read:', error);
+    }
+  };
+
+  const filteredInquiries = inquiries.filter(inquiry => {
+    const matchesSearch = 
+      inquiry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      inquiry.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      inquiry.message.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = statusFilter === 'all' || inquiry.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'unread': return 'bg-red-100 text-red-800';
+      case 'read': return 'bg-yellow-100 text-yellow-800';
+      case 'responded': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <p className="text-gray-500">Loading inquiries...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Contact Inquiries</h1>
+          <p className="text-gray-500 mt-1">{inquiries.length} total inquiries</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Search inquiries..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F4A340] focus:border-transparent"
+            />
+          </div>
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F4A340] focus:border-transparent"
+          >
+            <option value="all">All Status</option>
+            <option value="unread">Unread</option>
+            <option value="read">Read</option>
+            <option value="responded">Responded</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <table className="w-full">
+          <thead className="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Customer
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Subject
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Message
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Date
+              </th>
+              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {filteredInquiries.map((inquiry) => (
+              <tr 
+                key={inquiry._id} 
+                className={`hover:bg-gray-50 ${inquiry.status === 'unread' ? 'bg-blue-50' : ''}`}
+              >
+                <td className="px-6 py-4">
+                  <div>
+                    <p className="font-medium text-gray-900">{inquiry.name}</p>
+                    <p className="text-sm text-gray-500">{inquiry.email}</p>
+                    {inquiry.phone && (
+                      <p className="text-sm text-gray-500">{inquiry.phone}</p>
+                    )}
+                  </div>
+                </td>
+                <td className="px-6 py-4 text-gray-900">
+                  {inquiry.subject || 'N/A'}
+                </td>
+                <td className="px-6 py-4">
+                  <p className="text-gray-900 max-w-xs truncate">{inquiry.message}</p>
+                </td>
+                <td className="px-6 py-4">
+                  <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(inquiry.status)}`}>
+                    {inquiry.status}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-gray-500 text-sm">
+                  {format(new Date(inquiry.createdAt), 'MMM dd, yyyy')}
+                </td>
+                <td className="px-6 py-4">
+                  <div className="flex items-center justify-end gap-2">
+                    {inquiry.status === 'unread' && (
+                      <button
+                        onClick={() => markAsRead(inquiry._id)}
+                        className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                        title="Mark as Read"
+                      >
+                        <CheckCircle className="w-4 h-4" />
+                      </button>
+                    )}
+                    <button
+                      onClick={() => {
+                        setSelectedInquiry(inquiry);
+                        if (inquiry.status === 'unread') markAsRead(inquiry._id);
+                      }}
+                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                      title="View & Respond"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {filteredInquiries.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-500">No inquiries found</p>
+          </div>
+        )}
+      </div>
+
+      {selectedInquiry && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b border-gray-200">
+              <h2 className="text-2xl font-bold text-gray-900">Inquiry Details</h2>
+            </div>
+            
+            <div className="p-6 space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                  <p className="text-gray-900">{selectedInquiry.name}</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                  <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(selectedInquiry.status)}`}>
+                    {selectedInquiry.status}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <p className="text-gray-900">{selectedInquiry.email}</p>
+              </div>
+
+              {selectedInquiry.phone && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                  <p className="text-gray-900">{selectedInquiry.phone}</p>
+                </div>
+              )}
+
+              {selectedInquiry.subject && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                  <p className="text-gray-900">{selectedInquiry.subject}</p>
+                </div>
+              )}
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <p className="text-gray-900 whitespace-pre-wrap">{selectedInquiry.message}</p>
+                </div>
+              </div>
+
+              {selectedInquiry.response && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Response</label>
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <p className="text-gray-900 whitespace-pre-wrap">{selectedInquiry.response}</p>
+                  </div>
+                </div>
+              )}
+
+              {selectedInquiry.status !== 'responded' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Send Response</label>
+                  <textarea
+                    value={response}
+                    onChange={(e) => setResponse(e.target.value)}
+                    rows={5}
+                    placeholder="Type your response here..."
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F4A340] focus:border-transparent"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="p-6 border-t border-gray-200 flex gap-4">
+              <button
+                onClick={() => {
+                  setSelectedInquiry(null);
+                  setResponse('');
+                }}
+                className="flex-1 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                Close
+              </button>
+              {selectedInquiry.status !== 'responded' && (
+                <button
+                  onClick={handleRespond}
+                  disabled={sending || !response.trim()}
+                  className="flex-1 px-6 py-3 bg-[#F4A340] text-white rounded-lg hover:bg-[#e69730] transition-colors disabled:opacity-50"
+                >
+                  {sending ? 'Sending...' : 'Send Response'}
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,15 @@
+
+import categoryRoutes from './routes/categories';
+import orderRoutes from './routes/orders';
+import customOrderRoutes from './routes/customOrders';
+import customerRoutes from './routes/customers';
+import inquiryRoutes from './routes/inquiries';
+import mediaRoutes from './routes/media';
+
+app.use('/api/categories', categoryRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/custom-orders', customOrderRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/inquiries', inquiryRoutes);
+app.use('/api/media', mediaRoutes);
+

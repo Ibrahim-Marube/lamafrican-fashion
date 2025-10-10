@@ -1,0 +1,89 @@
+import axios from 'axios';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+
+console.log('🔧 Admin API URL:', API_URL);
+
+export const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add token to requests
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('adminToken');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Products API
+export const productsAPI = {
+  getAll: () => api.get('/products'),
+  getById: (id: string) => api.get(`/products/${id}`),
+  create: (data: any) => api.post('/products', data),
+  update: (id: string, data: any) => api.put(`/products/${id}`, data),
+  delete: (id: string) => api.delete(`/products/${id}`),
+};
+
+// Categories API
+export const categoriesAPI = {
+  getAll: () => api.get('/categories'),
+  getById: (id: string) => api.get(`/categories/${id}`),
+  create: (data: any) => api.post('/categories', data),
+  update: (id: string, data: any) => api.put(`/categories/${id}`, data),
+  delete: (id: string) => api.delete(`/categories/${id}`),
+};
+
+// Orders API
+export const ordersAPI = {
+  getAll: () => api.get('/orders'),
+  getById: (id: string) => api.get(`/orders/${id}`),
+  updateStatus: (id: string, status: string) => api.patch(`/orders/${id}/status`, { status }),
+};
+
+// Custom Orders API
+export const customOrdersAPI = {
+  getAll: () => api.get('/custom-orders'),
+  getById: (id: string) => api.get(`/custom-orders/${id}`),
+  updateStatus: (id: string, status: string) => api.patch(`/custom-orders/${id}/status`, { status }),
+};
+
+// Contacts API
+export const contactsAPI = {
+  getAll: () => api.get('/contacts'),
+  getById: (id: string) => api.get(`/contacts/${id}`),
+  respond: (id: string, response: string) => api.post(`/contacts/${id}/respond`, { response }),
+};
+
+// Auth API
+export const authAPI = {
+  login: (email: string, password: string) => api.post('/auth/login', { email, password }),
+  me: () => api.get('/auth/me'),
+};
+
+// Media API
+export const mediaAPI = {
+  getAll: () => api.get('/media'),
+  upload: (file: File) => {
+    const formData = new FormData();
+    formData.append('image', file);
+    return api.post('/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+  },
+  uploadMultiple: (files: File[]) => {
+    const formData = new FormData();
+    files.forEach(file => formData.append('images', file));
+    return api.post('/upload-multiple', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+  },
+  delete: (id: string) => api.delete(`/media/${id}`),
+};
+
+export const customersAPI = { getAll: () => api.get('/customers') };
+export const inquiriesAPI = { getAll: () => api.get('/inquiries') };
