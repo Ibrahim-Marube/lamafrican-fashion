@@ -104,7 +104,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
   return (
-    <Link href={`/products/${product.id}`} className="group">
+    <Link href={`/categories/${product.category.toLowerCase().replace(/ /g, "-")}`} className="group">
       <div className="relative aspect-[3/4] bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4">
         <Image
           src={product.image}
