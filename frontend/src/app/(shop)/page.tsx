@@ -35,31 +35,17 @@ const featuredProducts = allProducts.filter(p => p.badge === 'Featured');
 
 const generatedCategories: any = generatedCategoriesData;
 
-const categories = [
-  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats' },
-  { id: 2, name: 'African Men Shirts', slug: 'men-shirts' },
-  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets' },
-  { id: 4, name: 'Ankara Kitenge Prints', slug: 'kitenge-prints' },
-  { id: 5, name: 'Ankara Ladies Tops', slug: 'ladies-tops' },
-  { id: 6, name: 'Ankara Maxi Dress', slug: 'maxi-dress' },
-  { id: 7, name: 'Ankara Patched Dresses', slug: 'patched-dresses' },
-  { id: 8, name: 'Ankara Patched Hoodies', slug: 'patched-hoodies' },
-  { id: 9, name: 'Ankara Patched Snoodies', slug: 'patched-snoodies' },
-  { id: 10, name: 'Ankara Patched T-Shirts', slug: 'patched-tshirts' },
-  { id: 11, name: 'Ankara Skarters', slug: 'skarters' },
-  { id: 12, name: 'Blazers', slug: 'blazers' },
-  { id: 13, name: 'Bridesmaids Dresses', slug: 'bridesmaids' },
-  { id: 14, name: 'Free Ankara Dresses', slug: 'free-ankara' },
-  { id: 15, name: 'His and Hers', slug: 'his-hers' },
-  { id: 16, name: 'Ladies Top and Skirt', slug: 'top-skirt' },
-  { id: 17, name: 'Men Senator Suits', slug: 'senator-suits' },
-  { id: 18, name: 'Smookie Thread Dress', slug: 'smookie' },
-  { id: 19, name: 'Traditional Wedding Dresses', slug: 'traditional-wedding' },
-].map(cat => ({
-  ...cat,
-  images: generatedCategories[cat.slug]?.images?.map((img: any) => img.image) || [],
-  count: generatedCategories[cat.slug]?.count || 0
-}));
+const categories = Object.keys(generatedCategories).map((key, idx) => {
+  const cat = generatedCategories[key];
+  return {
+    id: idx + 1,
+    name: cat.name,
+    slug: cat.slug,
+    count: cat.count,
+    images: cat.images?.map((img: any) => img.image) || [],
+    price: cat.price
+  };
+}).filter(cat => cat.count > 0);
 
 function CategoryCard({ category, index }: { category: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
