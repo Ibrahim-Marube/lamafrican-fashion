@@ -14,6 +14,7 @@ const mobileSlides = [
   '/images/products/patched-snoodies/snoody6.jpg',
   '/images/products/patched-snoodies/snoody11.jpg',
   '/images/products/patched-snoodies/snoody8.jpg',
+  '/images/products/bomber-jackets/bomber2.jpg',
 ];
 
 export default function HeroSlider() {

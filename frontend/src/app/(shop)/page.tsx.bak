@@ -14,11 +14,11 @@ const allProducts = [
   { id: 4, name: 'Ankara Ladies Top - Elegant', price: 5500, image: '/images/products/ladies-tops/top1.jpg', category: 'Ladies Tops', badge: 'Featured' },
   { id: 5, name: 'Sun Hat - Safari', price: 2500, image: '/images/products/sun-hats/sun1.JPG', category: 'Sun Hats', badge: 'Trending' },
   { id: 6, name: 'Ankara Maxi Dress - Emerald', price: 8800, image: '/images/products/maxi-dress/maxi2.jpg', category: 'Maxi Dress', badge: 'Featured' },
-  { id: 7, name: 'Ankara Bomber Jacket - Urban', price: 11500, image: '/images/products/bomber-jackets/bomber2.jpg', category: 'Bomber Jackets', badge: 'Trending' },
+  { id: 7, name: 'Ankara Patched Hoodie - Urban', price: 9500, image: '/images/products/patched-hoodies/hoodie1.jpg', category: 'Patched Hoodies', badge: 'Trending' },
   { id: 8, name: 'African Men Shirt - Premium', price: 7000, image: '/images/products/men-shirts/men-shirt-2.jpg', category: 'Men Shirts', badge: 'Featured' },
   { id: 9, name: 'Ankara Ladies Top - Chic', price: 5800, image: '/images/products/ladies-tops/top2.jpg', category: 'Ladies Tops', badge: 'Trending' },
   { id: 10, name: 'Ankara Maxi Dress - Golden', price: 9200, image: '/images/products/maxi-dress/maxi3.jpg', category: 'Maxi Dress', badge: 'Featured' },
-  { id: 11, name: 'Ankara Bomber Jacket - Classic', price: 12500, image: '/images/products/bomber-jackets/bomber3.jpg', category: 'Bomber Jackets', badge: 'Trending' },
+  { id: 11, name: 'Ankara Patched Hoodie - Classic', price: 9800, image: '/images/products/patched-hoodies/hoodie2.jpg', category: 'Patched Hoodies', badge: 'Trending' },
   { id: 12, name: 'Sun Hat - Beach', price: 2800, image: '/images/products/sun-hats/sun2.JPG', category: 'Sun Hats', badge: 'Featured' },
   { id: 13, name: 'African Men Shirt - Modern', price: 6800, image: '/images/products/men-shirts/men-shirt-3.jpg', category: 'Men Shirts', badge: 'Trending' },
   { id: 14, name: 'Ankara Ladies Top - Vibrant', price: 6000, image: '/images/products/ladies-tops/top3.jpg', category: 'Ladies Tops', badge: 'Featured' },
@@ -35,31 +35,17 @@ const featuredProducts = allProducts.filter(p => p.badge === 'Featured');
 
 const generatedCategories: any = generatedCategoriesData;
 
-const categories = [
-  { id: 1, name: 'Accessories - Sun Hats', slug: 'sun-hats' },
-  { id: 2, name: 'African Men Shirts', slug: 'men-shirts' },
-  { id: 3, name: 'Ankara Bomber Jackets', slug: 'bomber-jackets' },
-  { id: 4, name: 'Ankara Kitenge Prints', slug: 'kitenge-prints' },
-  { id: 5, name: 'Ankara Ladies Tops', slug: 'ladies-tops' },
-  { id: 6, name: 'Ankara Maxi Dress', slug: 'maxi-dress' },
-  { id: 7, name: 'Ankara Patched Dresses', slug: 'patched-dresses' },
-  { id: 8, name: 'Ankara Patched Hoodies', slug: 'patched-hoodies' },
-  { id: 9, name: 'Ankara Patched Snoodies', slug: 'patched-snoodies' },
-  { id: 10, name: 'Ankara Patched T-Shirts', slug: 'patched-tshirts' },
-  { id: 11, name: 'Ankara Skarters', slug: 'skarters' },
-  { id: 12, name: 'Blazers', slug: 'blazers' },
-  { id: 13, name: 'Bridesmaids Dresses', slug: 'bridesmaids' },
-  { id: 14, name: 'Free Ankara Dresses', slug: 'free-ankara' },
-  { id: 15, name: 'His and Hers', slug: 'his-hers' },
-  { id: 16, name: 'Ladies Top and Skirt', slug: 'top-skirt' },
-  { id: 17, name: 'Men Senator Suits', slug: 'senator-suits' },
-  { id: 18, name: 'Smookie Thread Dress', slug: 'smookie' },
-  { id: 19, name: 'Traditional Wedding Dresses', slug: 'traditional-wedding' },
-].map(cat => ({
-  ...cat,
-  images: generatedCategories[cat.slug]?.images?.map((img: any) => img.image) || [],
-  count: generatedCategories[cat.slug]?.count || 0
-}));
+const categories = Object.keys(generatedCategories).map((key, idx) => {
+  const cat = generatedCategories[key];
+  return {
+    id: idx + 1,
+    name: cat.name,
+    slug: cat.slug,
+    count: cat.count,
+    images: cat.images?.map((img: any) => img.image) || [],
+    price: cat.price
+  };
+}).filter(cat => cat.count > 0);
 
 function CategoryCard({ category, index }: { category: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -67,7 +53,6 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
   useEffect(() => {
     if (category.images.length <= 1) return;
-
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -75,7 +60,6 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
         setIsTransitioning(false);
       }, 300);
     }, 2000);
-
     return () => clearInterval(interval);
   }, [category.images.length]);
 
@@ -84,17 +68,17 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
   return (
     <Link
       href={`/categories/${category.slug}`}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95"
+      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95 animate-fade-in"
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      <div className="relative h-56 sm:h-64 md:h-72 bg-gray-100 overflow-hidden">
+      <div className="relative aspect-[3/4] bg-gray-100 overflow-hidden">
         <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
-            src={category.images[currentImageIndex]}
+            src={category.images?.[currentImageIndex] || '/images/placeholder-category.jpg'}
             alt={category.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             priority={index < 4}
           />
         </div>
@@ -147,22 +131,11 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 }
 
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <main className="bg-white">
       <HeroSlider />
 
-      {/* Shop by Categories - Off-white Background */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gray-50 fade-in">
+      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-6 bg-gray-50 animate-slide-up">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">Shop by Category</h2>
@@ -180,7 +153,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {categories.map((category, idx) => (
               <CategoryCard key={category.id} category={category} index={idx} />
             ))}
@@ -188,8 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trending Now */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white animate-fade-in-delay">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
@@ -208,8 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured For You */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
+      <section className="pt-12 pb-24 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white animate-fade-in-delay-2">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
