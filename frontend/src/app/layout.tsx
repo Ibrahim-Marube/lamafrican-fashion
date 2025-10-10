@@ -3,7 +3,6 @@ export const viewport = {
   initialScale: 1,
   viewportFit: 'cover',
 };
-import Navbar from '@/components/Navbar';
 import type { Metadata } from 'next';
 import './globals.css';
 import { Providers } from './providers';
@@ -19,13 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="h-full">
+      <body className="h-full">
         <Providers>
-          <Navbar />
-          <main className="pt-40">
-            {children}
-          </main>
+          {children}
         </Providers>
       </body>
     </html>

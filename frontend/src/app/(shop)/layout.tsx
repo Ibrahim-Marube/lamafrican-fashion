@@ -4,9 +4,9 @@ import '../globals.css';
 
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="pt-0 flex-1">{children}</main>
+      <main className="flex-grow pt-24 md:pt-16">{children}</main>
       <Footer />
     </div>
   );

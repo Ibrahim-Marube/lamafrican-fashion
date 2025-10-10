@@ -68,10 +68,9 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
   return (
     <Link
       href={`/categories/${category.slug}`}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95"
+      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 active:scale-95 animate-fade-in"
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      {/* Portrait-optimized 3:4 aspect ratio for fashion photos */}
       <div className="relative aspect-[3/4] bg-gray-100 overflow-hidden">
         <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <Image
@@ -79,7 +78,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
             alt={category.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             priority={index < 4}
           />
         </div>
@@ -106,7 +105,6 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
   return (
     <Link href={`/products/${product.id}`} className="group">
-      {/* Portrait-optimized 3:4 aspect ratio */}
       <div className="relative aspect-[3/4] bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4">
         <Image
           src={product.image}
@@ -133,21 +131,11 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 }
 
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <main className="bg-white">
       <HeroSlider />
 
-      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-6 bg-gray-50 fade-in">
+      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-6 bg-gray-50 animate-slide-up">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight">Shop by Category</h2>
@@ -165,7 +153,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {categories.map((category, idx) => (
               <CategoryCard key={category.id} category={category} index={idx} />
             ))}
@@ -173,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white fade-in">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-orange-50 to-white animate-fade-in-delay">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
@@ -192,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-12 pb-24 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white fade-in">
+      <section className="pt-12 pb-24 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-blue-50 to-white animate-fade-in-delay-2">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
